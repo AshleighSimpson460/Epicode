@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@300&display=swap');
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+.topbar{
+    position: fixed;
+    display: flex;
+    height: 100px;
+    width: 100%;
+    background-color: #FFC017;
+    border-bottom: black solid 1px;
+    justify-content: space-around;
+    margin-right: 8vh;
+    z-index: 1;
+}
+
+.m-logo{
+    position: relative;
+    height: 180px;
+    bottom: 40px;
+}
+
+.top-icons p{
+    font-size: 21px;
+    border: solid 1px black;
+    position: relative;
+    bottom: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-block: 10px;
+    border-radius: 25px;
+}
+
+.topbar h1{
+    font-family: serif;
+    font-weight: bolder;
+}
+
+.top-icons{
+    display: flex;
+    font-size: 30px;
+    flex-direction: row-reverse;
+    padding-block: 35px;
+}
+
+.profile_pic{
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-right: 10px;
+    position: relative;
+    bottom: 6px;
+}
+
+.fa-solid{
+    margin-right: 10px;
+    margin-left: 10px;
+    fill: grey;
+}
+
+.Curious-area{
+    display: block;
+    width: 100%;
+    height: 500px;
+    margin: auto;
+    text-align: left;
+    background-color: #FFC017;
+    padding-top: 90px;
+    border-bottom: black solid 1px;
+}
+
+.Curious-area h1{
+    font-family: 'Source Serif Pro', serif;
+    width: 60%;
+    margin: auto;
+    font-weight: 500;
+    font-family: serif;
+    font-size: 110px;
+    padding-bottom: 20px;
+    padding-top: 60px;
+}
+
+.Curious-area p{
+    font-family: Arial, Helvetica, sans-serif;
+    width: 60%;
+    font-weight: 200;
+    margin: auto;
+    font-size: 28px;
+    padding-bottom: 0px;
+    color: rgb(27, 27, 27);
+}
+
+.Curious-area p#1::after{
+    content: "\a";
+    white-space: pre;
+}
+
+.Curious-area p#2::before{
+    content: "\a";
+    white-space: pre;
+}
+
+
+button{
+    position: relative;
+    left: 20%;
+    top: 20%;
+    width: 250px;
+    height: 50px;
+    margin: auto;
+    background-color: rgb(27, 27, 27);
+    color: white;
+    border-radius: 30px;
+    font-size: 21px;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+.heading-2{
+    display: inline-block;
+}
+
+.heading-2 i.fa-solid{
+    border: solid 1px black;
+    border-radius: 50%;
+    padding: 2px;
+}
+
+h2{
+    display: inline-block;
+    font-size: 16px;
+    color: grey;
+}
+
+.main{
+    width: 100%;
+    text-align: left;
+    border-bottom: solid 1px rgb(209, 209, 209);
+    height: 380px;
+}
+
+.mid-content{
+    width: 65%;
+    margin: auto;
+    padding-top: 20px;
+}
+
+.mid-body{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.small-card{
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+    height: 150px;
+    position: relative;
+    left: 10px;
+}
+
+.user-pic{
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+.small-card img.profile_pic{
+    height: 20px;
+}
+
+.user-pic p.num{
+    font-size: 30px;
+    color: grey;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.description{
+    margin-left: 50px;
+    position: relative;
+    bottom: 20px;
+}
+
+.comment{
+    font-weight: bold;
+    font-size: 18px;
+    color: rgb(30, 30, 30);
+}
+
+.date{
+    color: grey;
+}
+
+.main-body{
+    padding-top: 4vh;
+    width: 100%;
+    height: 100vh;
+}
+
+.posts{
+    width: 60%;
+    margin: auto;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 100vh;
+}
+
+
+.med-card{
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    height: 200px;
+    position: relative;
+    padding-bottom: 6vh;
+}
+
+div.med-card img.profile_pic{
+    height: 20px;
+    top: .5px;
+}
+
+div.med-card div.description{
+    position: relative;
+    right: 45px;
+}
+
+div.med-card div.description p.comment{
+    font-size: 22px;
+    width: 600px;
+}
+
+div.med-card div.description p.sub{
+    font-size: 18px;
+    width: 600px;
+    color: grey;
+}
+
+div.med-card .thumbnail{
+    height: 150px;
+    display: flex;
+    position: relative;
+    left: 600px;
+    bottom: 240px;
+    padding-top: 1.4vh;
+    padding-left: 2vh;
+}
+
+div.med-card div.description span.genre{
+    padding: 4px;
+    border: solid 1px rgb(218, 218, 218);
+    border-radius: 20px;
+    background-color: rgb(218, 218, 218);
+}
+
+div.med-card div.description i.fa-solid{
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    bottom: 35px;
+    width: 525px;
+}
+
+.sidebar{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: inline-block;
+}
+
+.options{
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+    margin: auto;
+    position: absolute;
+    bottom: 1900px;
+    left: 900px;
+}
+
+.positioning{
+    display: flex;
+    flex-wrap: wrap;
+    width: 400px;
+    column-gap: 10px;
+    border-bottom: solid 1px rgb(117, 117, 117);
+}
+
+.positioning p{
+    padding: 8px;
+    border: solid 1px black;
+    border-color: rgb(117, 117, 117);
+    color: rgb(117, 117, 117);
+}
