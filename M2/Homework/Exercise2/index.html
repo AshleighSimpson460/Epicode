@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M2 - Exercise 2</title>
+</head>
+<body>
+    <script>
+        /*
+        EXERCISE 2) Create an index.html file with the <script> tag in it
+        You are trying to estimate the total worth of your garage and you’re going to create a simple algorithm that calculates it by using variables, console.log(), prompt() and alert()
+         1) Create a variable to get the number of cars, inside you will save the result of a prompt() function that asks the user how many cars he/she has in the garage
+         2) Next, create anotehr variable to ask the user how much a car is worth these days on average, in the same way as before, by using the prompt() function
+         3) Do the same for motorbikes and bikes
+         4) Create 3 variables to hold the value of cars, motorbikes and bikes by multiplying the number of each by the average of each
+         5) Check each of the 3 variables content with console logs. Then create a totalGarageValue variable that sums the three values together.
+         6) Use an alert() function to display the garage worth in the end with a nice message
+
+         You should now have a popup with the garage’s total estimate worth 
+            */
+
+        const TotalCarsOwned = prompt('How many cars are in your garage?');
+        const CarValue = prompt('How much is the car(s) worth today?');
+        const TotalMotorbikesOwned = prompt('How many Motorbikes are in your garage?');
+        const MotorbikeValue = prompt('How much is the motorbike(s) worth today?');
+        const TotalBikesOwned = prompt('How many bikes are in your garage');
+        const BikeValue = prompt('How much are the bike(s) worth today');
+        const ValeuOfCar = TotalCarsOwned * CarValue;
+        const ValueOfMotorbike = TotalMotorbikesOwned * BikeValue;
+        const ValueOfBike = TotalBikesOwned * BikeValue;
+
+        const TotalGarageValue = ValueOfBike + ValeuOfCar + ValueOfMotorbike;
+
+        alert("Your garage is worth roughly:","TotalGarageValue");
+
+    </script>
+</body>
+</html>
