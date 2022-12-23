@@ -29,32 +29,39 @@ let pasta = 150
 
 
 let Bowl = RomanoCheese + EggYolks;
-console.log(Bowl);
+console.log("Bowl",Bowl,Salt);
 
 let pan = RawBlackPepper
-console.log(pan);
+console.log("pan",pan);
 
 /**Removes the rawblackpepper because they're now cooked instead of raw */
 pan -= RawBlackPepper
 
 let BlackPepper = RawBlackPepper
+console.log("Blackpepper is now cooked",BlackPepper);
 
 
 /* Water is in ml */
 let BoiledWater = 500;
+console.log("Boiled water",BoiledWater);
 
 /** Total amount of water left in the ladle = 20ml */
 let ladle = BoiledWater - 480;
+console.log("ladle",ladle);
 
  /** Remaining amount of water in the ladle minus 6ml (14ml is usually the amount of ml for 2 tablespoons)*/
 let TwoTablespoons = ladle - 6;
+console.log("Two tablespoons",TwoTablespoons);
 
 /*Pinch of black pepper / salt removes 1 from the total amount of 'RawBlackPepper' or 'Salt'*/
 let PinchBlackPepper = BlackPepper - 1;
 let PinchOfSalt = Salt - 1;
+console.log("Pinch of black pepper",PinchBlackPepper);
+console.log("pinch of salt",PinchBlackPepper);
 
 /** the combination of the final products of the recipe */
 let pot = BoiledWater + PinchOfSalt;
+console.log("BoiledWater + salt",pot);
 
 pot += pasta;
 
@@ -67,5 +74,7 @@ pan += pot;
 pan += Bowl;
 
 pan += BlackPepper;
+
+console.log("combination of final products",pan);
 
 
