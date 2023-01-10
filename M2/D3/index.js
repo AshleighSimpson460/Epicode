@@ -75,6 +75,16 @@ const var1 = 2
 const var2 = 4
 const var3 = 6
 
+if (var1 < var3){
+  console.log(var3)
+} else console.log(var1)
+if (var2 < var3){
+  console.log(var2)
+} else console.log(var3)
+if (var1<var3){
+  console.log(var1)
+} else(var3)
+
 
 /* EXERCISE 7
 Write a piece of code for checking if a given value is a integer or not. (search for 'typeof')
