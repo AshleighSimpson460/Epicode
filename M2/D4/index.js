@@ -306,9 +306,16 @@
   /* EXERCISE 16
      Write a piece of code to get  the movie with the  id given below from the provided movies array.
   */
+ 
   const id = "tt0355702";
   
-    
+    for(let n = 0; n < movies.length; n++){
+      if(movies[n].imdbID !== id);
+      movieID = movies[n];
+      break;
+    }
+
+    console.log(movieID)
 
   /* EXERCISE 17
        Write a piece of code to get  the  the sum of all the years in which the movies in the provided movies array have been produced.
