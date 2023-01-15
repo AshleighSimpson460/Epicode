@@ -320,8 +320,22 @@
   /* EXERCISE 17
        Write a piece of code to get  the  the sum of all the years in which the movies in the provided movies array have been produced.
   */
-  
+    let sum1 = 0
+
+   for (let c = 0; c < movies.length; c++){
+    sum1 = sum1 + parseInt(movies[c].Year);
+   }
+
+   console.log(sum1)
   /* EXERCISE 18
      Write a piece of code to get  all the movies in the provided movies array which contain the string value (provided below) in the title.
   */
   
+   let outcome = []
+
+   for (let b = 0; b < movies.length; b++){
+    if(movies[b].Title.includes("Lord","Avengers"));
+    outcome.push(movies[b]);
+   }
+
+    console.log(outcome)
