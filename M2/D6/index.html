@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D6 Exercise</title>
+</head>
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: white;
+    }
+    table{
+        border-top: 1px black solid;
+    border-bottom: 1px solid black;
+    border-right: solid 1px black;
+    border-left: 1px solid black;
+    border-collapse: collapse;
+    }
+    td,th{
+        border-right: black solid 1px;
+        border-bottom: black solid 1px;
+        width: 200px;
+        height: 30px;
+    }
+    td{
+        border-top: black solid 1px;
+    }
+    th{
+        font-weight: bold;
+        font-size: 18px;
+    }
+    img{
+        height: 100px;
+        width: 150px;
+    }
+    .input-holder{
+        margin-top: 4vh;
+        margin-bottom: 4vh;
+    }
+    .Message-Board{
+        height: 8vh;
+        width: 50vh;
+    }
+    .Address{
+        color: blue;
+    }
+</style>
+<!-- You have been assigned to the creation of a Smartphone Shop Website. The homepage you’re about to write is 
+    just a showcase of the products of the shop with some extra information. No shopping cart / checkout features are required.
+
+ 
+
+Complete exercises from 1 to 6 with just plain HTML:
+
+ 
+
+EX1: Add an h1 tag with the name of your shop
+
+EX2: Add a TABLE with the top 5 products of your shop
+
+EX3: Insert for each product an image, a title, a description and a price
+
+EX4: Add links to existing Amazon products for each item in the table
+
+EX5: Add a footer with the address and the name of your shop
+
+EX6: Add a message board where the user can type a message in it (no real posting/saving features required!)
+
+ 
+
+…from 7 to 12, should be written in JavaScript:
+
+ 
+
+EX7: Write a function to change the h1 text to something else
+
+EX8: Write a function to change the page background color
+
+EX9: Write a function to change the footer address with a fake one
+
+EX10: Write a function to add a CSS class to every Amazon link
+
+EX11: Write a function to toggle a CSS class for all the images in the table; that class should set the visibility of the image
+
+EX12: Write a function to color the price of the products in a different one every time it’s invoked -->
+<body>
+    <h1>My Merch</h1>
+    <div class="Table-body">
+    <table>
+        <tr>
+            <th>Teddy bear</th>
+            <th>Console controller</th>
+            <th>Hats</th>
+            <th>Duvets</th>
+        </tr>
+        <tr>
+            <td>
+                <img class="teddy-img" alt="img-of-baby-yoda" src="https://media.4rgos.it/i/Argos/9581788_R_Z001A?w=1500&h=880&qlt=70&fmt=webp"/></a>
+            </td>
+            <td>
+                <img class="controller-img" alt="img-of-anime-ps4-controller" src="https://8fddbd524b5976832632-bb1139a233dd1615ca84f744f3688ee9.ssl.cf5.rackcdn.com/ps4/shell_designs/soul-reaper/f-standard-black.png"/></a>
+            </td>
+            <td>
+                <img class="hat-img" src="https://img.hatshopping.co.uk/Navigat-Wool-Bobble-Hat-by-Lierys-grey.59193_rf13.jpg" alt="img-of-woolly-hat"/></a>
+            </td>
+            <td>
+                <img class="duvet-img" src="https://secure.img1-cg.wfcdn.com/im/59064218/resize-h755-w755%5Ecompr-r85/1566/156606106/Rosenstein+Grey+Brushed+Cotton+150+TC+Reversible+Duvet+Cover+Set.jpg"/></a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p>This teddy bear is from the star wars series Mandalorian in a huggable plush form.</p>
+            </td>
+            <td>
+                <p>Anime designed controller</p>
+            </td>
+            <td>
+                <p>a comfortable woolly hat for the winter</p>
+            </td>
+            <td>
+                <p>thick duvets to keep you warm at night during winter</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a id="test" href="https://www.amazon.co.uk/GWD85-Star-Wars-11-inch-Mandalorian/dp/B0825SNHP1/ref=asc_df_B0825SNHP1/?tag=googshopuk-21&linkCode=df0&hvadid=428111119915&hvpos=&hvnetw=g&hvrand=2769160372018219373&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9045954&hvtargid=pla-906379831148&psc=1&tag=&ref=&adgrpid=97823377405&hvpone=&hvptwo=&hvadid=428111119915&hvpos=&hvnetw=g&hvrand=2769160372018219373&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9045954&hvtargid=pla-906379831148"><p>Link Here</p></a>
+            </td>
+            <td>
+                <a id="test" href="https://www.amazon.co.uk/Vanknight-PS4-Pro-Controller-Playstation-Multicolor/dp/B0B7NMSMYG/ref=sr_1_10?keywords=PS4+Playstation+controller+Skins&qid=1674259376&sr=8-10"><p>Link Here</p></a>
+            </td>
+            <td>
+                <a id="test" href="https://www.amazon.co.uk/Beanie-Stretchy-Cuffed-Lining-Classic/dp/B0B9XKWJL9/ref=sxin_15_ac_d_rm?ac_md=2-2-bWVucyB3b29seSBoYXQ%3D-ac_d_rm_rm_rm&content-id=amzn1.sym.0b27cf19-b0d0-4bf1-9dce-b0a41b6c66ae%3Aamzn1.sym.0b27cf19-b0d0-4bf1-9dce-b0a41b6c66ae&cv_ct_cx=woolly+hat&keywords=woolly+hat&pd_rd_i=B0B9XKWJL9&pd_rd_r=46bbfd3a-dd18-4fad-b4c5-5ec8d02cddfc&pd_rd_w=JQ6o6&pd_rd_wg=cFEZs&pf_rd_p=0b27cf19-b0d0-4bf1-9dce-b0a41b6c66ae&pf_rd_r=0G4G4ZM3WYY41V97VFRB&qid=1674259469&sprefix=woolly%2Caps%2C77&sr=1-3-e2b79f78-a3a0-4cac-b70d-2a5e4ae8e724"><p>Link Here</p></a>
+            </td>
+            <td>
+                <a id="test" href="https://www.amazon.co.uk/HIG-Piece-Coverless-Duvet-Double/dp/B09YXTLSMW/ref=sr_1_9?crid=235QUR94MQB13&keywords=duvet&qid=1674259517&sprefix=duvet%2Caps%2C97&sr=8-9"><p>Link Here</p></a>
+            </td>
+        </tr>
+        <tr class="cost">
+            <td>
+                <p class="price">£20</p>
+            </td>
+            <td>
+                <p class="price">£75</p>
+            </td>
+            <td>
+                <p class="price">£30</p>
+            </td>
+            <td>
+                <p class="price">£18</p>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="input-holder">
+    <input class="Message-Board" type="text"> 
+</div>
+<footer>
+    <p>My Shop</p>
+    <p class="Address">123 Im Not Creative Street</p>
+    <p>ABC 123</p>
+    <p>email: john.smiith@gmail.com</p>
+</footer>
+<script>
+    function h1Change(){
+        const h1 = document.querySelector('h1');
+        h1.innerText = "MyFirstShop";
+    }
+    function bodyColour(){
+        const body = document.querySelector('body');
+        document.body.style.backgroundColor = "orange";
+    }
+    function footerModify(){
+        const footerChange = document.getElementsByClassName("Address")[0];
+        footerChange.innerHTML = "123 New Street ";
+    }
+    function CSSClass(){
+        const CSSClass = document.getElementById('test');
+        CSSClass.classList.add("CSSClass");
+    }
+    function toggleImg(){
+        const image = $("img"); 
+        const togglePic = document.querySelector('image'); 
+        const visibility = image.classList.toggle('hidden');
+    }
+    function priceTag(){
+        const priceChange = document.getElementsByClassName('cost')[0];
+        return priceChange.style.backgroundColor = "pink";
+    }
+</script>
+</body>
+</html>

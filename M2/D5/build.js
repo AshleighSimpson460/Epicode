@@ -842,4 +842,4 @@ function FilterSearch(){
       return filter        
 }
 
-console.log(FilterSearch(filter,"dev","US"))
+console.log(FilterSearch(filter,"US"))
