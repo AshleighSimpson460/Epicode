@@ -37,7 +37,12 @@
   /* EXERCISE 3
   Write a piece of code to create an array of 10 elements of random numbers in the range from 0 to 100 inclusive
    */
-  
+  let arr = []
+  for(let i = 0; i < 10; i++){
+    const random = Math.round(Math.random() * 100)
+    arr.push(random)
+  }
+  console.log(arr)
   
 
   /* EXERCISE 4
