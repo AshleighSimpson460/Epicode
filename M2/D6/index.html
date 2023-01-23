@@ -181,9 +181,11 @@ EX12: Write a function to color the price of the products in a different one eve
         CSSClass.classList.add("CSSClass");
     }
     function toggleImg(){
-        const image = $("img"); 
-        const togglePic = document.querySelector('image')
-        const visibility = image.style.display = ('none');
+        const togglePic = document.querySelectorAll("img");
+        for(i = 0; i < togglePic.length; i++){
+            const visibility = togglePic[i]
+            visibility.style.visibility = "hidden"
+        }
         }
 
     function priceTag(){ 
