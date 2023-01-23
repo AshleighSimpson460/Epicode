@@ -33,4 +33,20 @@ const marco = {
   
   const prices = [34, 5, 2];
   const shippingCost = 50;
+  let arr = [marco, amy, paul]
+  let sum = 0
+
+  for(let i = 0; i < prices.length;i++){
+    sum += prices[i];
+  }
+  console.log(sum)
   
+  function ambassadorCheck(user){
+  if(arr.name === arr.name && arr.isAmbassador === true){
+      return (sum * 0.7) + shippingCost
+    } else {
+      return (sum + shippingCost)
+    }
+  }
+
+  console.log(ambassadorCheck(marco))
