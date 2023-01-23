@@ -182,10 +182,11 @@ EX12: Write a function to color the price of the products in a different one eve
     }
     function toggleImg(){
         const image = $("img"); 
-        const togglePic = document.querySelector('image'); 
-        const visibility = image.classList.toggle('hidden');
-    }
-    function priceTag(){
+        const togglePic = document.querySelector('image')
+        const visibility = image.style.display = ('none');
+        }
+
+    function priceTag(){ 
         const priceChange = document.getElementsByClassName('cost')[0];
         return priceChange.style.backgroundColor = "pink";
     }
