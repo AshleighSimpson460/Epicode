@@ -245,7 +245,8 @@ const jobs = [
     department: "",
     salary_range: "100000-120000",
     company_profile: "",
-    benefits: "Benefits - FullBonus Eligible - YesInterview Travel Reimbursed – Yes",
+    benefits:
+      "Benefits - FullBonus Eligible - YesInterview Travel Reimbursed – Yes",
     telecommuting: 0,
     has_company_logo: 0,
     has_questions: 0,
@@ -399,7 +400,8 @@ const jobs = [
       "Established on the principles that full time education is not for everyone Spectrum Learning is made up of a team of passionate consultants with the drive for putting people who wish to grow themselves through education whilst working into long term and relevant job roles.We also are official re-sellers for The Institute of Recruiters/ Study Course professional courses in HR Practice, In-House Recruitment and Agency RecruitmentIt is our mission to help anyone wishing to pursue an apprenticeship onto the right qualification and into the right job.We work closely with both the candidate and the employer to ensure when the learner is enrolled they are at the start of a long and successful career.We have great relationships with a number of national training providers to ensure we can cover any apprenticeship available.",
     description:
       "Government funding is only available for 16-18 year olds.We have 10 vacancies for career driven, highly motivated individuals living in the Southend-On-Sea area.You will complete a 4 week traineeship before starting your apprenticeship in Customer Service. You will receive full training and support for the training provider.Please apply now and you will be invited to attend the open day.",
-    requirements: "16-18 year olds only due to government funding.Career prospects",
+    requirements:
+      "16-18 year olds only due to government funding.Career prospects",
     benefits: "Career prospects.",
     telecommuting: 0,
     has_company_logo: 1,
@@ -582,7 +584,8 @@ const jobs = [
       "i28 Technologies has demonstrated expertise in areas strategic to different business in varying verticals. I28 Technologies provides highly skilled Technology Consultants to meet the IT needs of our clients. The functional expertise gleaned from the experience of working for Fortune 500 companies has enabled the team @ I28 Technologies to provide professional service in the areas of Human Resource Consulting, IT consulting, Financial consulting, Business process consulting and Outsourcing. The company's core capabilities in IT consulting are in ERP, Datawarehouse (ETL), Web Technologies, BI Reporting &amp; Database services wherein we concentrate in SAP, OBIEE, Bigdata, Java, Sharepoint and Oracle.I28 Technologies has been incorporated by Top Professionals; therefore we have firsthand experience of the market. We have Global presence in four countries across the globe - USA, Canada, Malaysia and India. Our Client list includes BlueStar, Allianz Life Insurance, TCS etc. I28 Technologies facilitates online/classroom training on various modules of ERP, Datawarehouse (ETL), Web Technologies, BI Reporting &amp; Database. Courses Offered for entry level positions:•             Data Warehousing – ETL and Reporting Tools (Informatica PowerCenter 7.1/6.2/6.1/5.1, Business Objects, Cognos, Data modeling, Erwin, Sybase)•             SAP HANA/ BO/ BODS/ CRM•             JAVA Hadoop/ .NET/ Sharepoint/ Bigdata•             Teradata/ Oracle/ Spotfire/ OBIEE/ Biztalk and many more as per request…  Why you should join I28 Technologies??We have an unbeatable success rate of 100% placement throughout USA &amp; Canada making us proficient in giving our employees the best salaries.We keep full transparency with the employees and believe in high commitment levels as it is the key to have a long-term fruitful relationship.Our competence with SAP, OBIEE, Java and .NET has helped our clients to streamline their business processes and customize their modules to suit their business environment enabling us to upgrade the skills of our employees and broaden their horizons with the latest technology by facilitating online/classroom cross functional training.We also execute On-project support systems when the skills of employees are upgraded and new projects streamlined for them.",
     description:
       "Hello,Wish you are doing good...                      This is regarding job opportunity with i28 Technologies Corporation, USA. We are looking for IT professionals in different technologies/areas to cater the business needs of our clients located in USA. I am enclosing the details of our Organization Overview and Employee Benefits. You can go through this information and if you are interested please send me your updated Resume and Info Sheet Attached. H-1B Fiscal Year (FY) 2015 Cap SeasonWe are sponsoring H-1B for OPT/ L1/ L2 candidates for the Fiscal Year (FY) 2015 Cap Season. Highlights: Premium H-1B processingFiling done through top Law firmPlacement guaranteed at our direct clients in metro cities like NYC, Boston, Chicago, Atlanta Organization Overview:i28 Technologies has demonstrated expertise in areas strategic to different business in varying verticals. I28 Technologies provides highly skilled Technology Consultants to meet the IT needs of our clients. The functional expertise gleaned from the experience of working for Fortune 500 companies has enabled the team @ I28 Technologies to provide professional service in the areas of Human Resource Consulting, IT consulting, Financial consulting, Business process consulting and Outsourcing. The company's core capabilities in IT consulting are in ERP, Datawarehouse (ETL), Web Technologies, BI Reporting &amp; Database services wherein we concentrate in SAP, OBIEE, Bigdata, Java, Sharepoint and Oracle.I28 Technologies has been incorporated by Top Professionals; therefore we have firsthand experience of the market. We have Global presence in four countries across the globe - USA, Canada, Malaysia and India. Our Client list includes BlueStar, Allianz Life Insurance, TCS etc. I28 Technologies facilitates online/classroom training on various modules of ERP, Datawarehouse (ETL), Web Technologies, BI Reporting &amp; Database. Courses Offered for entry level positions:•             Data Warehousing – ETL and Reporting Tools (Informatica PowerCenter 7.1/6.2/6.1/5.1, Business Objects, Cognos, Data modeling, Erwin, Sybase)•             SAP HANA/ BO/ BODS/ CRM•             JAVA Hadoop/ .NET/ Sharepoint/ Bigdata•             Teradata/ Oracle/ Spotfire/ OBIEE/ Biztalk and many more as per request…  Why you should join I28 Technologies??We have an unbeatable success rate of 100% placement throughout USA &amp; Canada making us proficient in giving our employees the best salaries.We keep full transparency with the employees and believe in high commitment levels as it is the key to have a long-term fruitful relationship.Our competence with SAP, OBIEE, Java and .NET has helped our clients to streamline their business processes and customize their modules to suit their business environment enabling us to upgrade the skills of our employees and broaden their horizons with the latest technology by facilitating online/classroom cross functional training.We also execute On-project support systems when the skills of employees are upgraded and new projects streamlined for them. Our Employee Benefits:1) Best Pay Package as compared to market.2) Dedicated Resource Manager, HR and Recruiter.3) Medical Health Insurance.4) Filling Green Card for Visa Holders immediately on joining any project through the Company.5) Practice Development Option: For highly experienced professionals.6) Referral Program: For Employees.7) Canada Work Permit for eligible and interested employees.8) Eligible to get placed on internal direct client project staff augmentation and Implementation needs, whenever there is matching position and on client’s selection basis.9) Full Autonomy in terms of choosing projects, if more than one project in hand.10) All discussed terms and conditions will be signed by both parties on the letterhead of the Company.11) Free accommodation with food for OPT &amp; out station candidates. Also, we would like to add that we are generally flexible while dealing with consultants depending on given circumstances with our clients and needs of our employees. There are companies who make big commitments initially and keep things in gray area and candidates get to know after they join. We don’t follow such approach and that is why you will find every single point in detail in our “Terms and Conditions” to ensure no miscommunication happens. We keep full transparency and commitment levels with our employees to ensure employee satisfaction because these are the two things which can ensure Company-Employee long-term relationship and mutual benefit.If you are intrested for the above job opening, please send in your updated resume and contact information to #EMAIL_dcfb065d3588ca665ccdc15424875497d16857a702d0228d33d4a27186a49c85#",
-    requirements: "JAVA, .NET, SQL, ORACLE, SAP, Informatica, Bigdata,OBIEE, Web Technologies and Java, Sharepoint",
+    requirements:
+      "JAVA, .NET, SQL, ORACLE, SAP, Informatica, Bigdata,OBIEE, Web Technologies and Java, Sharepoint",
     benefits: "",
     telecommuting: 0,
     has_company_logo: 1,
@@ -827,19 +830,43 @@ const jobs = [
   },
 ];
 //DO NOT TOUCH THE ARRAY ABOVE!
-let array = []
-let filter = jobs.department?.includes(department.toUpperCase()) || jobs.location?.includes(location.toUpperCase())
-function FilterSearch(){
-  for(const filter of jobs){
-      if(filter){
-         const deleteFields = ["description","requirements","benefits","company_profile"];
-          for(const element of deleteFields){
-              delete jobs[deleteFields]
-          }
+
+// this array should be defined inside the function? it will contain filtered jobs, right?
+let filter =
+  jobs.department?.includes(department.toUpperCase()) ||
+  jobs.location?.includes(location.toUpperCase());
+
+// function names usually start with lower case (filterSearch is more conventional)
+
+// function filterSearch (description, location) {...} would make more sense
+function filterSearch(description,location) {
+  let array = [];
+  // for (const job of jobs) ?
+  for (const job of jobs) {
+    // filter in that case is one of the jobs
+    // if (filter) doesn't make sense - it is always true
+
+    // instead of this - why not check whether job.description === description and so on
+    if (job.description === description && job.requirements === requirements && job.benefits === benefits && company_profile === company_profile) {
+      const deleteFields = [
+        "description",
+        "requirements",
+        "benefits",
+        "company_profile",
+      ];
+      for (const field of deleteFields) {
+        // delete fields is an array. what you want here is element?
+        delete job[field];
       }
-      array.push(filter)
+    }
+
+    // you only want to push if the job passes the filter, right? right now you push every job to array
+    array.push(job);
   }
-      return filter        
+
+  // you return filter which is defined outside of the function (line 834) - it makes no sense
+  return array;
 }
 
-console.log(FilterSearch(filter,"US"))
+// use console.log() more inside of your function - so you see what particular variables contain
+console.log(filterSearch(jobs, "US"));
