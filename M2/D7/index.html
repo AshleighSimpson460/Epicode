@@ -189,6 +189,17 @@
       /* EXERCISE 13
        Use HTML5 tags to properly provide semantic meaning to the different portions of the page.
       */
+      const changeTag = function(){
+        const HTML5 = document.createElement('main')
+        const oldDiv = document.getElementsByTagName('div')[0]
+
+        HTML5.innerHTML += oldDiv.innerHTML;
+        
+        oldDiv.parentNode.replaceChild(HTML5, oldDiv);
+      }
+      changeTag()
+
+
     </script>
   </body>
 </html>
