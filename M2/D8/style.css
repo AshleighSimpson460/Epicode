@@ -1,0 +1,85 @@
+/* 11) Give a maximum width to the body and center it into the page
+12) Set every h1 to be centered
+13) Change the color of each link in the page
+14) Create a class with a border assigned to it
+15) Set the previously created table to have rounded corners
+16) Add a margin between every paragraph
+17) Create a class which changes font size and text weight when applied
+18) Create a class to hide a piece of content
+19) Add a green border to each <td>
+20) Add a dotted red border to each <tr> (note: <tr> does not accept a border property) */
+body{
+    width: 100%;
+}
+
+h1{
+    text-align: center;
+}
+
+a{
+    color: cyan;
+}
+
+.table-class{
+    border-collapse: separate;
+    border-color: green;
+}
+
+td{
+    border-right:  green solid 1px;
+    width: 200px;
+    height: 100px;
+    
+}
+
+.font-weight{
+    color: green;
+    font-weight: 200;
+}
+
+.hide{
+    display: none;
+}
+
+.table-head{
+    padding: 0;
+}
+
+th{
+    border-right: solid 1px green;
+}
+
+td, th, tr{
+    border-radius: 10px;
+    border-bottom: dotted 3px red;
+    border-top: green solid 1px;
+    border-left: green solid 1px;
+}
+
+.picture{
+    width: 100%;
+    vertical-align: bottom;
+    object-fit: cover;
+}
+
+.split {
+    height: 50%;
+    width: 100%;
+    position: absolute;
+    top: 80%;
+    padding-top: 2vh;;
+}
+
+.bottom{
+    border-top: black solid 1px;
+}
+
+footer{
+    position: relative;
+    padding-top: 2vh;
+    top: 25vh;
+}
+
+p{
+    margin: 2vh;
+}

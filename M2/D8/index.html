@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer=""></script>
+    <title>D8 exercise</title>
+</head>
+<body>
+    <!-- 1) Create a title for this webpage
+    2) Create a heading of your choice
+    3) Create an ordered list with some list items into it
+    4) Create a table with 5 columns and 4 rows
+    5) Add an image to each second cell of every row
+    6) Add a anchor link for every image
+    7) Merge together 2 table cells
+    8) Divide the page using a horizontal line
+    9) Create a container with a nested paragraph and a nested unordered list
+    10) Create a footer with some information about the page creator -->
+    <div id="container">
+        <h1 class="font-weight">heading for this webpage</h1>
+    </div>
+    <ol class="hide">
+        <li>List 1</li>
+        <li>List 2</li>
+        <li>List 3</li>
+        <li>List 4</li>
+        <li>List 5</li>
+    </ol>
+    <table class="table-class">
+        <tbody>
+            <tr>
+                <th class ="table-head" colspan="2">1</th>
+                <th>3</th>
+                <th>4</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td><img class="picture" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Golde33443.jpg" /></td>
+                <td><a href="https://upload.wikimedia.org/wikipedia/commons/6/6e/Golde33443.jpg"><p>link</p></a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><img class="picture" src="https://www.animalfriends.co.uk/siteassets/media/images/article-images/cat-articles/38_afi_article1_caring-for-a-kitten-tips-for-the-first-month.png" /></a></td>
+                <td><a href="https://www.animalfriends.co.uk/siteassets/media/images/article-images/cat-articles/38_afi_article1_caring-for-a-kitten-tips-for-the-first-month.png"><p>link</p></a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><img class="picture" src="https://lionalert.org/wp-content/uploads/2020/04/African-Lion-Cubs-3.jpg"/></td>
+                <td><a href="https://lionalert.org/wp-content/uploads/2020/04/African-Lion-Cubs-3.jpg"><p>link</p></a></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><img class="picture" src="https://static.boredpanda.com/blog/wp-content/uploads/2017/04/58fdbaac3329b_qWDL5Lq__700.jpg" /></td>
+                <td><a href="https://static.boredpanda.com/blog/wp-content/uploads/2017/04/58fdbaac3329b_qWDL5Lq__700.jpg"><p>link</p></a></td>
+                <td></td>
+            </tr>
+            <div class="split bottom">
+                <div class="bottom-half">
+                    <p>This is a nested paragraph and what will follow will be a nested unordered list.</p>
+                    <ul>
+                        <li>First</li>
+                        <li>Second</li>
+                        <li>Third</li>
+                        <li>Fourth</li>
+                    </ul>
+                </div>
+            </div>
+        </tbody>
+    </table>
+    <footer>
+        <p>A little about this page creator:</p>
+        <p>My name is Ashleigh. I am 22 years old creating this homework and I am a student at EPICODE who never knew much about coding but is progressing in the coding world slowly but surely.</p>
+    </footer>
+</body>
+</html>
