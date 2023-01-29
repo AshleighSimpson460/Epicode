@@ -832,41 +832,38 @@ const jobs = [
 //DO NOT TOUCH THE ARRAY ABOVE!
 
 // this array should be defined inside the function? it will contain filtered jobs, right?
-let filter =
-  jobs.department?.includes(department.toUpperCase()) ||
-  jobs.location?.includes(location.toUpperCase());
-
 // function names usually start with lower case (filterSearch is more conventional)
 
 // function filterSearch (description, location) {...} would make more sense
-function filterSearch(description,location) {
-  let array = [];
+const filterSearch = (jobs, title, location) => {
+  let filter = [];
   // for (const job of jobs) ?
   for (const job of jobs) {
     // filter in that case is one of the jobs
     // if (filter) doesn't make sense - it is always true
-
     // instead of this - why not check whether job.description === description and so on
-    if (job.description === description && job.requirements === requirements && job.benefits === benefits && company_profile === company_profile) {
-      const deleteFields = [
-        "description",
-        "requirements",
-        "benefits",
-        "company_profile",
-      ];
+      if (
+        job.location.toUpperCase().includes(location.toUpperCase()) &&
+        job.title.toUpperCase().includes(title.toUpperCase())
+      ) {
+        let deleteFields = [
+          "descripton",
+          "requirements",
+          "benefits",
+          "company_profile",
+        ];
       for (const field of deleteFields) {
         // delete fields is an array. what you want here is element?
-        delete job[field];
-      }
+        for (const field of deleteFields) {
+          delete job[field];
+        }
     }
-
     // you only want to push if the job passes the filter, right? right now you push every job to array
-    array.push(job);
-  }
-
+    filter.push(job)
+    }
   // you return filter which is defined outside of the function (line 834) - it makes no sense
-  return array;
+  return {filter, count: filter.length}
 }
-
+}
 // use console.log() more inside of your function - so you see what particular variables contain
-console.log(filterSearch(jobs, "US"));
+console.log(filterSearch(jobs,"","US"))
