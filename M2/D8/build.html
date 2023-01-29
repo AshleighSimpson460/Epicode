@@ -1,9 +1,20 @@
-
 <!DOCTYPE html>
 <!-- saved from url=(0442)https://s3.eu-west-1.amazonaws.com/eduflow-production/activity-resources/349855696563937.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2TAWW44RCEE6YREN%2F20220203%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20220203T173631Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%2A%3DUTF-8%27%27M1-D10-QUIZ.html&X-Amz-Signature=75cb524a56c640eaf5920ab2c8fadb3f91d14a002ca9ed0cfed11cc620bc8e11 -->
-<html><!--
+<html>
+  <!--
         QUIZ GAME!
 
+                // (you'll probably need to google how to get the value from a radio button in JS to evaluate the final score)
+        //
+        // IF YOU ARE DISPLAYING ONE QUESTION AT A TIME
+        // Display the first question with the text and the radio buttons
+        // when the user selects an answer, pick the next question from the array and replace the old one with it
+        // saving the user's choice in a variable
+      };
+
+      // How to calculate the result? You can do it in 2 ways:
+      // If you are presenting all the questions together, just take all the radio buttons and check if the selected answer === correct_answer
+      // If you are presenting one question at a time, just add one point or not to the user score if the selected answer === correct_answer
         RULES:
         / The player must guess correctly a certain amount of questions
         / Each correct answer gives him one point
@@ -30,8 +41,31 @@
         /* WHEN YOU ARE FINISHED
           Commit and push the code to your personal GitHub repository; then post the link of your commit on the Homework section of today's Eduflow.
         */
-    --><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head>
+    --><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+  </head>
   <body cz-shortcut-listen="true">
+    <main class="quiz-page">
+      <div class="quiz"></div>
+      <form>
+        <fieldset>
+          <legend class="multiple-choice-question"></legend>
+          <div>
+            <input type="radio" id="one" class="answer" value="answer">
+            <label for="answer">option1</label>
+            <input type="radio" id="two" class="answer" value="answer">
+            <label for="answer">option2</label>
+            <input type="radio" id="three" class="answer" value="answer">
+            <label for="answer">option3</label>
+            <input type="radio" id="four" class="answer" value="answer">
+            <label for="answer">option4</label>
+          </div>
+          <div class="submitButton">
+            <button type="submit">Get result</button>
+          </div>
+        </fieldset>
+      </form>
+    </main>
     <script>
       const questions = [
         {
@@ -134,23 +168,30 @@
       ];
 
       window.onload = function () {
-        // HINTS
+
+      };
+      function quizPage(id) {
+      const quizQuestion = document.getElementsByClassName("multiple-choice-question")
+      const result = document.getElementById("result")
+      
+       quizQuestion.innerText = questions[id].question[0]
+
+      const op1 = document.getElementById("one");
+      const op2 = document.getElementById("two");
+      const op3 = document.getElementById("three");
+      const op4 = document.getElementById("four");
+
+      op1.innerText = questions[id].incorrect_answers[1].text;
+      op2.innerText = questions[id].incorrect_answers[0].text;
+      op3.innerText = questions[id].correct_answer[0].text;
+      op4.innerText = questions[id].incorrect_answers[2].text;
+    }
+    </script>
+  </body>
+</html>
+
+<!-- // HINTS
         // IF YOU ARE DISPLAYING ALL THE QUESTIONS AT ONCE:
         // For each question, create a container for wrapping it; then create a radio button
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio
-        // with, as options, both the correct answer and the incorrect ones
-        // (you'll probably need to google how to get the value from a radio button in JS to evaluate the final score)
-        //
-        // IF YOU ARE DISPLAYING ONE QUESTION AT A TIME
-        // Display the first question with the text and the radio buttons
-        // when the user selects an answer, pick the next question from the array and replace the old one with it
-        // saving the user's choice in a variable
-      };
-
-      // How to calculate the result? You can do it in 2 ways:
-      // If you are presenting all the questions together, just take all the radio buttons and check if the selected answer === correct_answer
-      // If you are presenting one question at a time, just add one point or not to the user score if the selected answer === correct_answer
-    </script>
-  
-
-</body></html>
+        // with, as options, both the correct answer and the incorrect ones -->
