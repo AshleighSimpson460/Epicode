@@ -40,8 +40,7 @@ console.log(arr2)
 const minAndMax = function(){
     let min = Math.min(...arr2)
     let max =  Math.max(...arr2)
-    value = min && max
-    return value
+    console.log('The max number in the array is: ' + max + '\nThe min number in the array is: ' + min);
 }
 
 console.log(minAndMax())
