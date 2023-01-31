@@ -14,39 +14,48 @@ Details:    Today you are in charge of building the shopping cart logic for a we
 */
 
 const marco = {
-    name: "Marco",
-    lastName: "Rossi",
-    isAmbassador: true,
-  };
-  
-  const paul = {
-    name: "Paul",
-    lastName: "Flynn",
-    isAmbassador: false,
-  };
-  
-  const amy = {
-    name: "Amy",
-    lastName: "Reed",
-    isAmbassador: false,
-  };
-  
-  const prices = [34, 5, 2];
-  const shippingCost = 50;
-  let arr = [marco, amy, paul]
-  let sum = 0
+  name: "Marco",
+  lastName: "Rossi",
+  isAmbassador: true,
+};
 
-  for(let i = 0; i < prices.length;i++){
+const paul = {
+  name: "Paul",
+  lastName: "Flynn",
+  isAmbassador: false,
+};
+
+const amy = {
+  name: "Amy",
+  lastName: "Reed",
+  isAmbassador: false,
+};
+
+const prices = [34, 5, 2];
+const shippingCost = 50;
+let names = [marco, amy, paul];
+let sum = 0;
+
+const ambassadorCheck = function (name) {
+  const arr = [];
+  for (let i = 0; i < prices.length; i++) {
     sum += prices[i];
   }
-  console.log(sum)
-  
-  function ambassadorCheck(user){
-  if(arr.name === arr.name && arr.isAmbassador === true){
-      return (sum * 0.7) + shippingCost
+  console.log(sum);
+  for (const name of names) {
+    if (name.isAmbassador === true) {
+      sum = sum * 0.7 + shippingCost;
+      arr.push(name, sum);
     } else {
-      return (sum + shippingCost)
+      sum = sum + shippingCost;
+      arr.push(name, sum);
     }
   }
+  if (sum > 100) {
+    const newShippingCost = 0;
+    sum = sum + newShippingCost
+  } else;
+  return arr;
+};
 
-  console.log(ambassadorCheck(marco))
+console.log(ambassadorCheck());
