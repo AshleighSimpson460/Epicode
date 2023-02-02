@@ -31,31 +31,39 @@ const amy = {
   isAmbassador: false,
 };
 
-const prices = [34, 5, 2];
+let customers = [marco, amy, paul];
+
+const cart1 = [50, 24, 10]; // total:  84
+const cart2 = [50, 50, 5]; // total: 105
+const cart3 = [75, 30, 50, 7]; // total: 162
+
+let shoppingCart = [cart1, cart2, cart3];
+
 const shippingCost = 50;
-let names = [marco, amy, paul];
+
+// --------------------------------------------------------
+
 let sum = 0;
 
-const ambassadorCheck = function (name) {
-  const arr = [];
-  for (let i = 0; i < prices.length; i++) {
-    sum += prices[i];
+for (const carts of shoppingCart) {
+  sum = 0;
+  for (let i = 0; i < carts.length; i++) {
+    sum += carts[i];
   }
   console.log(sum);
-  for (const name of names) {
-    if (name.isAmbassador === true) {
-      sum = sum * 0.7 + shippingCost;
-      arr.push(name, sum);
-    } else {
-      sum = sum + shippingCost;
-      arr.push(name, sum);
-    }
-  }
-  if (sum > 100) {
-    const newShippingCost = 0;
-    sum = sum + newShippingCost
-  } else;
-  return arr;
-};
 
-console.log(ambassadorCheck());
+  for (let customer of customers) {
+    if (customer.isAmbassador === true) {
+      let discount = sum * 0.7;
+      if (discount < 100) {
+        discount = discount + shippingCost;
+      } else if (discount > 100) {
+        discount = discount;
+      }
+      console.log(customer.name, discount);
+    }
+    else if(customer.isAmbassador === false && sum < 100)
+      sum = sum + shippingCost
+    console.log(customer.name, sum);
+}
+}
