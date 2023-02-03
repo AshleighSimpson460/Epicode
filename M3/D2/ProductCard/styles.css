@@ -1,13 +1,71 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
     color: #742305;
-}
-
-.main-container{
-    height: 600px;
-    width: 400px;
-    background-color: #fef7e2;
     margin-left: 40%;
     margin-top: 10%;
+}
+
+.product-card{
+    display: flex;
+    width: 400px;
+    height: 600px;
+    background-color: #fef7e2;
     border-radius: 130px;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+
+
+.product-card .honey-img{
+    flex: 1 0 450px;
+    object-fit: cover;
+}
+
+.item-contents{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.products{
+    display: flex;
+    
+    flex-wrap: wrap;
+}
+
+.products .name{
+    flex: 2 0 200px;
+}
+
+.line1{
+    font-size: 25px;
+    font-weight: bold;
+}
+.line2{
+    font-size: 20px;
+}
+
+.price{
+    font-size: 25px;
+}
+
+.cart{
+    flex: 1 0 50px;
+    display: flex;
+    align-self: center;
+    padding-bottom: 4vh;
+}
+
+button{
+    border-radius: 25px;
+    width: 200px;
+    background-color: #fde394;
+    border: 0;
+    font-size: 20px;
+    color: #742305;
 }
