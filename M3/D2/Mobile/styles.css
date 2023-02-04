@@ -1,0 +1,29 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #742305;
+    padding: 2vw;
+    width: 100%;
+}
+
+.main-container{
+    background-color: #fef7e2;
+    border-radius: 2vw;
+    box-sizing: border-box;
+}
+
+.card-container{
+    display: flex;
+    flex-wrap: wrap-reverse;
+    padding: 1.5vw;
+    gap: 2vw;
+}
+
+.honey-img{
+    flex: 1 1 300px;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.card-container .card-text{
+    flex: 1 1 200px;
+}
