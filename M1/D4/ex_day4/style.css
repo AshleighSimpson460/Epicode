@@ -1,0 +1,200 @@
+   /* Font used in the mockup: Arial, Helvetica, sans-serif.
+    You can use Chrome extensions to check the colors in the mockup. For example: ColorZilla.
+    Scan the mockup and define some common classes with common style and apply them to necessary elements.
+   */
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background-color: #eaeded;
+    
+   }
+.images {
+    margin: 4vh
+}
+.text-center {
+    text-align:center;
+}
+   
+.bg-yellow {
+    color: #eaeded;
+    background-color:#f56600;
+}
+   
+.py-1 {
+    padding: 1rem 0;
+    margin: 4vh;
+}
+
+.bg-dark {
+    color: #eaeded;
+    background-color:#222f3e;
+    margin: 0;
+}
+   
+
+.span-border{
+    padding: 5px;
+    color: #eaeded;
+}
+
+.logo {
+    width: 12vh;
+    margin-left: 4vh;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+#bottom-logo{
+    width: 15vh;
+    margin-left: 45%;
+    margin-right: 45%;
+    padding: 2rem;
+}
+
+.head-logo{
+    display: block;
+    background-color: #314155;
+    margin: 0;
+}
+
+.foot-logo{
+    display: block;
+    background-color: #314155;
+    margin: 0;
+}
+
+.span-bg{
+    background: #222f3e;
+}
+
+.row{
+    background: white;
+    text-align: center;
+    padding: 1rem 0;
+    padding-bottom: 0;
+}
+
+div.title-row{
+    width: 100%;
+    padding: 1rem 0;
+    text-align: left;
+}
+
+.square{
+    width: 300px;
+    height: 350px;
+    border-radius: 15%;
+    margin: 4vh;
+    object-fit: cover;
+}
+
+.banner{
+    text-align: center;
+    padding: 3rem 0;
+    width: 100%;
+}
+
+.rectangle{
+    width: 100%;
+    padding: 1rem 0;
+}
+
+div.title-div{
+    padding: 0;
+    margin-left: 4vh;
+    text-align: left;
+    font-size: 21px;
+}
+
+.subtitle{
+    margin-left: 2vh;
+    color: #007185;
+    font-weight: bold;
+}
+
+.BST{
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 28%;
+    left: 42%;
+}
+
+span.T2{
+    text-align: center;
+    padding: 1rem 0;
+    padding-left: 40%;
+    font-size: 21px;
+}
+
+a{
+    color: white;
+}
+
+.inline-block{
+    width: 100%;
+    padding: 1rem 0;
+    margin-top: 2vh;
+}
+
+.box{
+    display: inline-block;
+    vertical-align: top;
+    width: 350px;
+    height: 350px;
+    padding: 0 4vh;
+    background-color: white;
+}
+
+div.subtitle-div{
+    text-align: left;
+    font-size: 26px;
+    padding-left: 4vh;
+    padding-bottom: 2vh;
+    font-weight: bold;
+    margin-top: 1vh;
+}
+
+.game-images{
+    padding: 0 2vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+div.pics img{
+    width: 135px;
+    object-fit: cover;
+}
+
+div.pics p{
+    margin: 0;
+}
+
+footer.bottom-block{
+    color: #007185;
+    font-size: 15px;
+    font-weight: 100;
+    
+}
+
+.clothing-container{
+    margin-left: 2vh;
+}
+
+.clothing-images{
+    padding: 0 2vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.housing-images{
+    padding: 0 2vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.holiday-images{
+    padding: 0 2vh;
+    display: flex;
+    justify-content: space-between;
+}

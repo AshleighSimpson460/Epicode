@@ -1,0 +1,44 @@
+span{
+    display: flex;
+    justify-content: baseline;
+    padding-top: 2vh;
+    padding-left: 2vh;
+    font-size: 21px;
+}
+
+.topbar{
+    background-color: rgb(40, 170, 72);
+    height: 8vh;
+}
+
+.main{
+    display: flex;
+    height: 75vh;
+    flex-wrap: wrap;
+    flex-flow: row;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.navigation{
+    display: flex;
+    width: 30vh;
+    background: orange;
+}
+
+.article{
+    display: flex;
+    width: 50%;
+    background-color: rgb(247, 210, 0);
+}
+
+.aside{
+    background-color: rgb(209, 209, 104);
+    width: 50%;
+}
+
+.bottombar{
+    height: 8vh;
+    background-color: rgb(40, 170, 72);
+}
+

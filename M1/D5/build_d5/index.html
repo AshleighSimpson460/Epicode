@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     .container {
+        font-size: 0;
+     }
+
+     .box {
+        position: absolute;
+        top: 25%;
+        left: 25%;
+        font-size: 0;
+        width: 616px;
+        border: solid 1px black;
+     }
+
+      .row div{
+        position: relative;
+        height: 75px;
+        width: 75px;
+        border: solid 1px black;
+        display: inline-block;
+        font-size: 1rem;
+      }
+
+      span{
+        position: absolute;
+      }
+
+      div:nth-child(2n){
+        background-color: black;
+      }
+      .row:nth-child(2n+1){
+        background-color: rgb(150, 75, 0);
+      }
+
+      .row:nth-child(2) div:nth-child(2n) {
+        background: rgb(150, 75, 0);
+      }
+      .row:nth-child(4) div:nth-child(2n) {
+        background: rgb(150, 75, 0);
+      }
+      .row:nth-child(6) div:nth-child(2n) {
+        background: rgb(150, 75, 0);
+      }
+      .row:last-of-type div:nth-child(2n) {
+        background: rgb(150, 75, 0);
+      }
+
+      .row:first-of-type span:nth-child(2n+1){
+        bottom: 80px;
+        margin-left: 3vh;
+      }
+
+      .row:first-of-type span:nth-child(2){
+        right: 80px;
+        margin-top: 3vh;
+      }
+
+      .row:first-of-type div:last-of-type span:last-of-type{
+        left: 80px;
+        margin-top: 3vh;
+      }
+
+      .row:nth-child(2) span:first-of-type{
+        right: 80px;
+        margin-top: 3vh;
+      }
+      .row:nth-child(3) span:first-of-type{
+        right: 80px;
+        margin-top: 3vh;
+      }
+      .row:nth-child(4) span:first-of-type{
+        right: 80px;
+        margin-top: 3vh;
+      }
+      .row:nth-child(5) span:first-of-type{
+        right: 80px;
+        margin-top: 3vh;
+      }
+      .row:nth-child(6) span:first-of-type{
+        right: 80px;
+        margin-top: 3vh;
+      }
+      .row:nth-child(7) span:first-of-type{
+        right: 80px;
+        margin-top: 3vh;
+      }
+      .row:last-of-type span:nth-child(2n+1){
+        top:80px;
+        margin-left: 3vh;
+      }
+      .row:nth-child(2) div:last-of-type span:last-of-type{
+        left: 80px;
+        margin-top: 3vh;
+      }
+      .row:nth-child(3) div:last-of-type span:last-of-type{
+        left: 80px;
+        margin-top: 3vh;
+      }
+      .row:nth-child(4) div:last-of-type span:last-of-type{
+        left: 80px;
+        margin-top: 3vh;
+      }
+      .row:nth-child(5) div:last-of-type span:last-of-type{
+        left: 80px;
+        margin-top: 3vh;
+      }
+      .row:nth-child(6) div:last-of-type span:last-of-type{
+        left: 80px;
+        margin-top: 3vh;
+      }
+      .row:nth-child(7) div:last-of-type span:last-of-type{
+        left: 80px;
+        margin-top: 3vh;
+      }
+      .row:last-of-type div:last-of-type span:last-of-type{
+        left: 80px;
+        margin-top: 3vh;
+      }
+      .row:last-of-type div:first-of-type span:nth-child(2){
+        right:80px;
+        margin-top: 3vh;
+      }
+      div.row div:hover{
+        background-color: red;
+      }
+
+      div.row div{
+        cursor:pointer
+      }
+</style>
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="row">
+                <div>
+                    <span>A</span>
+                    <span>1</span>
+                </div>
+                <div>
+                    <span>B</span>
+                </div>
+                <div>
+                    <span>C</span>
+                    <span></span>
+                </div>
+                <div>
+                    <span>D</span>
+                    <span></span>
+                </div>
+                <div>
+                    <span>E</span>
+                    <span></span>
+                </div>
+                <div>
+                    <span>F</span>
+                    <span></span>
+                </div>
+                <div>
+                    <span>G</span>
+                    <span></span>
+                </div>
+                <div>
+                    <span>H</span>
+                    <span>1</span>
+                </div>
+            </div>  
+            <div class="row">
+                <div><span>2</span></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div><span>2</span></div>
+            </div>   
+            <div class="row">
+                <div>
+                    <span>3</span>
+                </div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div>
+                    <span>3</span>
+                </div>
+            </div>     
+            <div class="row">
+                <div>
+                    <span>4</span>
+                </div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div>
+                    <span>4</span>
+                </div>
+            </div>     
+            <div class="row">
+                <div>
+                    <span>5</span>
+                </div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div>
+                    <span>5</span>
+                </div>
+            </div>     
+            <div class="row">
+                <div>
+                    <span>6</span>
+                </div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div>
+                    <span>6</span>
+                </div>
+            </div> 
+            <div class="row">
+                <div>
+                    <span>7</span>
+                </div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div>
+                    <span>7</span>
+                </div>
+            </div>     
+            <div class="row">
+                <div>
+                    <span>A</span>
+                    <span>1</span>
+                </div>
+                <div>
+                    <span>B</span>
+                </div>
+                <div>
+                    <span>C</span>
+                    
+                </div>
+                <div>
+                    <span>D</span>
+                    
+                </div>
+                <div>
+                    <span>E</span>
+                    
+                </div>
+                <div>
+                    <span>F</span>
+                    
+                </div>
+                <div>
+                    <span>G</span>
+                    
+                </div>
+                <div>
+                    <span>H</span>
+                    <span>1</span>
+                </div>
+            </div>         
+        </div>
+    </div>
+</body>
+</html>

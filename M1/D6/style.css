@@ -1,0 +1,130 @@
+.container{
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: relative;   
+    font-family: Arial, Helvetica, sans-serif;    
+}
+.image-card{
+    position: relative;
+    width: 400px;
+    height: 600px;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    margin-left: 50px;
+    margin-top: 50px;
+    box-shadow: 20px 10px 20px grey;
+    border-radius: 5%;
+    backface-visibility: hidden;
+    transition: .5s ease;
+}
+.pic{
+    width: 400px;
+    height: 600px;
+}
+.image-card:hover{
+    background-color: rgba(32, 32, 32, 0.795);
+    transition: 0.3s ease;
+}
+.image-card:hover .fa-arrow-up-from-bracket{
+    opacity: 0.8;
+}
+
+.image-card:hover .fa-ellipsis{
+    opacity: 0.8;
+}
+
+.image-card:hover .fa-square-arrow-up-right{
+    opacity: 0.8;
+}
+
+.image-card:hover div.icons p#save{
+    opacity: 0.8;
+}
+
+img.pic:hover{
+    opacity: 0.5;
+}
+
+i{
+    font-size: 1rem;
+    color: black;
+}
+
+.fa-solid{
+    font-size: 2rem;
+    position: absolute;
+    border: 1px solid grey;
+    border-radius: 50%;
+    background-color: rgba(184, 184, 184, .6);
+    width: 50px;
+    height: 50px;
+    background-size: 100% 200%;
+    
+}
+
+.fa-arrow-up-from-bracket{
+    top: 535px;
+    left: 280px;
+    text-align: center;
+    transition: .2s ease;
+    opacity: 0;
+}
+.fa-ellipsis{
+    top: 535px;
+    left: 340px;
+    text-align: center;
+    transition: .2s ease;
+    opacity: 0;
+}
+
+.fa-square-arrow-up-right{
+    position: absolute;
+    display: inline-block;
+    top: 535px;
+    left: 40px;
+    padding-top: 5px;
+    padding-left: 10px;
+    font-size: 1rem;
+    border: 1px solid grey;
+    border-radius: 25px;
+    background-color: rgba(184, 184, 184, .6);
+    transition: .2s ease;
+    opacity: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 140px;
+}
+
+.fa-square-arrow-up-right p{
+    position: relative;
+    bottom: 30px;
+    left: 18px;
+    padding-left: 2px;
+}
+
+div.icons p#save{
+    position: absolute;
+    top: 20px;
+    left: 310px;
+    border: 1px solid red;
+    border-radius: 25px;
+    background-color: red;
+    transition: .2s ease;
+    opacity: 0;
+    padding: 5px;
+    font-size: 1.2rem;
+    color: white;
+}
+
+div.icons i{
+    transition: height 2s;
+}
+
+div.icons div{
+    display: inline-block
+}

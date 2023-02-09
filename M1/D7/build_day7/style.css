@@ -1,0 +1,86 @@
+body{
+    margin-left: 8vh;
+    margin-right: 8vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+    text-align: center;
+}
+
+.subheading{
+    text-align: center;
+}
+
+.related-div{
+    text-align: center;
+}
+
+div.related-div span{
+    margin-left: 2vh;
+    color: rgb(255, 98, 98);
+}
+
+.tabs{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    text-align: center;
+    justify-content: space-between;
+}
+
+div.tabs div.popular-tab p{
+    border: 1px solid red;
+    padding: 1vh;
+    padding-right: 3vh;
+    border-radius: 10px;
+}
+
+div.tabs div.middle-tab span{
+    margin-left: 2vh;
+}
+
+div.tabs div.filter-tab p{
+    border: 1px solid grey;
+    padding: 1vh;
+    border-radius: 10px;
+}
+
+div.middle-tab span:last-of-type{
+    border: solid 1px rgb(180, 180, 180);
+    padding: 1vh;
+    background-color: rgb(180, 180, 180);
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.card{
+    margin-right: 2vh;
+    margin-top: 3vh;
+    margin-bottom: 4vh;
+}
+
+div.profile{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+div.thumbnail img.thumb{
+    width: 400px;
+}
+
+div.thumbnail img.pfp{
+    width: 40px;
+}
+
+div.icons span{
+    margin-left: 2vh;
+}
