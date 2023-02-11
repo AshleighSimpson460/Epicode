@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <title>bootstrap advanced exercise</title>
+  </head>
+  <style>
+    .size {
+      font-size: 20px;
+    }
+    .jumbo-container {
+      padding-top: 10px;
+    }
+
+    .summer-container {
+      padding-top: 25px;
+      box-shadow: 10px 10px 20px gray;
+    }
+    .vacation-card {
+      overflow: hidden;
+    }
+    .vacation-pictures {
+      width: 100%;
+    }
+
+    .summer-cards {
+      overflow: hidden;
+    }
+    .deal {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .resort-img {
+      width: 200px;
+    }
+    .profilepic {
+      width: 75px;
+    }
+    .feedback-border {
+      padding-top: 25px;
+      box-shadow: 10px 10px 5px gray;
+      border-radius: 20px;
+    }
+
+    .container{
+      padding-top: 15px;
+    }
+  </style>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-light"
+      style="background-color: #e3f2fd"
+    >
+      <a class="navbar-brand Home" href="">
+        <img class="navlogo" src="./Assets/logo.png" width="50" height="50" />
+        Navigation Bar
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav-collapsed">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active size">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item active size">
+            <a class="nav-link" href="#DealOfTheWeek">Deal of the Week </a>
+          </li>
+          <li class="nav-item active size">
+            <a class="nav-link" href="#">Welcome Summer </a>
+          </li>
+          <li class="nav-item active size">
+            <a class="nav-link" href="#">Deal of the day</a>
+          </li>
+          <li class="nav-item active size">
+            <a class="nav-link" href="#">Last Minute</a>
+          </li>
+          <li class="nav-item active size">
+            <a class="nav-link" href="#">Testimonial</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container jumbo-container">
+      <p>
+        <a
+          class="btn btn-primary"
+          data-toggle="collapse"
+          href="#jumbotron-card"
+          role="button"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+        >
+          collapse
+        </a>
+      </p>
+      <div class="jumbotron" id="jumbotron-card">
+        <h1 class="display-4">Hello, world!</h1>
+        <p class="lead">
+          Welcome to C flights, Putting the C in your Chilled vacations.
+        </p>
+        <hr class="my-4" />
+        <p>Your chilled vacation is one button away. Book now!</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="#" role="button"
+            >Book Flight</a
+          >
+        </p>
+      </div>
+    </div>
+    <div class="cointainer">
+      <p>
+        <a
+          class="btn btn-primary"
+          data-toggle="collapse"
+          href="#DealOfTheWeek"
+          role="button"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+        >
+          collapse
+        </a>
+      </p>
+      <h1 class="display-2 font-weight-bold text-center">Deal of the Week</h1>
+      <div class="row px-3 py-3 justify-content-center" id="DealOfTheWeek">
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="card text-center vacation-card">
+            <div class="card-body">
+              <h4 class="card.title title">Book Now!</h4>
+              <img
+                src="https://bevvy.co/articles/wp-content/uploads/2021/09/cocktails-at-the-beach.jpg"
+                class="card-img-top vacation-pictures"
+                alt="vacation-image"
+              />
+              <h5 class="card.subtitle subtitle">
+                Book now for only half price!
+              </h5>
+              <p class="lead">
+                <a class="btn btn-primary btn-lg" href="#" role="button"
+                  >Click Me!</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="card text-center vacation-card">
+            <div class="card-body">
+              <h4 class="card.title title">Book Now!</h4>
+              <img
+                src="https://www.usnews.com/object/image/00000179-6d3f-dbd1-ad7b-fd3f3f9e0000/0intro.jpg?update-time=1621035532202&size=responsive640"
+                class="card-img-top vacation-pictures"
+                alt="vacation-image"
+              />
+              <h5 class="card.subtitle subtitle">
+                Book now for only half price!
+              </h5>
+              <p class="lead">
+                <a class="btn btn-primary btn-lg" href="#" role="button"
+                  >Click Me!</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="card text-center vacation-card">
+            <div class="card-body">
+              <h4 class="card.title title">Book Now!</h4>
+              <img
+                src="https://www.jetsetter.com//uploads/sites/7/2018/09/V42RpV-B.jpeg"
+                class="card-img-top vacation-pictures"
+                alt="vacation-image"
+              />
+              <h5 class="card.subtitle subtitle">
+                Book now for only half price!
+              </h5>
+              <p class="lead">
+                <a class="btn btn-primary btn-lg" href="#" role="button"
+                  >Click Me!</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="card text-center vacation-card">
+            <div class="card-body">
+              <h4 class="card.title title">Book Now!</h4>
+              <img
+                src="https://www.traveloffpath.com/wp-content/uploads/2021/12/top10-tropical-2022-1024x683.jpg.webp"
+                class="card-img-top vacation-pictures"
+                alt="vacation-image"
+              />
+              <h5 class="card.subtitle subtitle">
+                Book now for only half price!
+              </h5>
+              <p class="lead">
+                <a class="btn btn-primary btn-lg" href="#" role="button"
+                  >Click Me!</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container summer-container" >
+      <p>
+        <a
+          class="btn btn-primary"
+          data-toggle="collapse"
+          href="#SummerDeals"
+          role="button"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+        >
+          collapse
+        </a>
+      </p>
+      <h1 class="display-2 font-weight-bold text-center">Welcome Summer</h1>
+      <div class="row px-3 py-3 justify-content-between" id="SummerDeals">
+        <div class="col-12 col-md-4 col-lg-2">
+          <div class="card text-center summer-cards">
+            <div class="card-body">
+              <h4 class="card.title title">Hot Summer Deals</h4>
+              <img
+                src="https://publish.purewow.net/wp-content/uploads/sites/2/2022/07/best-luxury-vacations-miavana.jpg?fit=728%2C524"
+                class="card-img-top vacation-pictures"
+                alt="vacation-image"
+              />
+              <h5 class="card.subtitle subtitle">
+                These are our Welcome Summer deals.
+              </h5>
+              <p class="lead">
+                <a class="btn btn-primary btn-lg" href="#" role="button"
+                  >Click Me!</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-2">
+          <div class="card text-center summer-cards">
+            <div class="card-body">
+              <h4 class="card.title title">Hot Summer Deals</h4>
+              <img
+                src="https://media-cdn.tripadvisor.com/media/vr-splice-j/05/fc/f2/43.jpg"
+                class="card-img-top vacation-pictures"
+                alt="vacation-image"
+              />
+              <h5 class="card.subtitle subtitle">
+                These are our Welcome Summer deals.
+              </h5>
+              <p class="lead">
+                <a class="btn btn-primary btn-lg" href="#" role="button"
+                  >Click Me!</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-2">
+          <div class="card text-center summer-cards">
+            <div class="card-body">
+              <h4 class="card.title title">Hot Summer Deals</h4>
+              <img
+                src="https://i.insider.com/5beee4ab0d7c672d2b79aae1?width=700"
+                class="card-img-top vacation-pictures"
+                alt="vacation-image"
+              />
+              <h5 class="card.subtitle subtitle">
+                These are our Welcome Summer deals.
+              </h5>
+              <p class="lead">
+                <a class="btn btn-primary btn-lg" href="#" role="button"
+                  >Click Me!</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-2">
+          <div class="card text-center summer-cards">
+            <div class="card-body">
+              <h4 class="card.title title">Hot Summer Deals</h4>
+              <img
+                src="https://www.upscalelivingmag.com/wp-content/uploads/2021/03/luxury-mountain-vacation-1.jpg"
+                class="card-img-top vacation-pictures"
+                alt="vacation-image"
+              />
+              <h5 class="card.subtitle subtitle">
+                These are our Welcome Summer deals.
+              </h5>
+              <p class="lead">
+                <a class="btn btn-primary btn-lg" href="#" role="button"
+                  >Click Me!</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-2">
+          <div class="card text-center summer-cards">
+            <div class="card-body">
+              <h4 class="card.title title">Hot Summer Deals</h4>
+              <img
+                src="https://fashionbombdaily.com/wp-content/uploads/2021/07/vacay.jpeg"
+                class="card-img-top vacation-pictures"
+                alt="vacation-image"
+              />
+              <h5 class="card.subtitle subtitle">
+                These are our Welcome Summer deals.
+              </h5>
+              <p class="lead">
+                <a class="btn btn-primary btn-lg" href="#" role="button"
+                  >Click Me!</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-2">
+          <div class="card text-center summer-cards">
+            <div class="card-body">
+              <h4 class="card.title title">Hot Summer Deals</h4>
+              <img
+                src="https://www.traveloffpath.com/wp-content/uploads/2021/12/top10-tropical-2022-1024x683.jpg.webp"
+                class="card-img-top vacation-pictures"
+                alt="vacation-image"
+              />
+              <h5 class="card.subtitle subtitle">
+                These are our Welcome Summer deals.
+              </h5>
+              <p class="lead">
+                <a class="btn btn-primary btn-lg" href="#" role="button"
+                  >Click Me!</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container deal-container" >
+      <p>
+        <a
+          class="btn btn-primary"
+          data-toggle="collapse"
+          href="#DealOfTheDay"
+          role="button"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+        >
+          collapse
+        </a>
+      </p>
+      <h1 class="display-2 font-weight-bold text-center">Deal of the day</h1>
+      <div class="row mb-3" id="DealOfTheDay">
+        <div class="col col-lg-8">
+          <img
+            class="vacation-pictures"
+            src="https://media-cdn.tripadvisor.com/media/photo-s/22/ff/81/68/baoase-luxury-resort.jpg"
+          />
+        </div>
+        <div class="col col-lg-4">
+          <p class="deal">This is the deal of the day</p>
+          <p class="deal">
+            14 days all inclusive breakfast, spa & FREE chauffeur
+          </p>
+          <p class="deal">price: £250 per person</p>
+          <p class="lead">
+            <a class="btn btn-primary btn-lg" href="" role="button"
+              >Click Me!</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="container Last-Minute" >
+      <p>
+        <a
+          class="btn btn-primary"
+          data-toggle="collapse"
+          href="#LastMinute"
+          role="button"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+        >
+          collapse
+        </a>
+      </p>
+      <div class="row mb-3" id="LastMinute">
+        <div class="col-6 col-md-4 col-lg-3">
+          <img
+            class="resort-img"
+            src="https://www.travelandleisure.com/thmb/5R9bFSANt_omAnaJoF9_xSTOI4Q=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/best-mexico-resort-hotel-Viceroy-Riviera-Maya-00-MXRESHOTWB21jpg-f32ab547d1d849369066e55312dc4440.jpg"
+          />
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <img
+            class="resort-img"
+            src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/d5/9c/b8/stone-wood-nature-resort.jpg?w=700&h=-1&s=1"
+          />
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <img
+            class="resort-img"
+            src="https://atmosphereresorts.com/wp-content/uploads/2020/03/Main-pool-and-beach-at-Atmosphere-Resorts-Spa.jpg"
+          />
+        </div>
+        <div class="col-6 col-md-4 col-lg-3">
+          <img
+            class="resort-img"
+            src="https://www.omnihotels.com/-/media/digex/destination-interests/interest-resort-2880x1870.jpg?mw=1980&hash=908202CC75CC42EC7BBA0346B137001CD71DF5D9"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="container Testimonial" >
+      <p>
+        <a
+          class="btn btn-primary"
+          data-toggle="collapse"
+          href="#Testimonial-container"
+          role="button"
+          aria-expanded="false"
+          aria-controls="collapseExample"
+        >
+          collapse
+        </a>
+      </p>
+      <h1 class="display-2 text-center">Feedback section</h1>
+      <div class="mt-5" id="Testimonial-container">
+        <div class="d-flex pb-3 feedback-border">
+          <img class="profilepic" src="./Assets/profile-pic.png" />
+          <div class="px-3">
+            <h6>Posted</h6>
+            <p>I booked here and it was amazing!</p>
+          </div>
+        </div>
+        <div class="d-flex pb-3 feedback-border">
+          <img class="profilepic" src="./Assets/profile-pic.png" />
+          <div class="px-3">
+            <h6>Posted</h6>
+            <p>I booked here and it was amazing!</p>
+          </div>
+        </div>
+        <div class="d-flex pb-3 feedback-border">
+          <img class="profilepic" src="./Assets/profile-pic.png" />
+          <div class="px-3">
+            <h6>Posted</h6>
+            <p>I booked here and it was amazing!</p>
+          </div>
+        </div>
+        <div class="d-flex pb-3 feedback-border">
+          <img class="profilepic" src="./Assets/profile-pic.png" />
+          <div class="px-3">
+            <h6>Posted</h6>
+            <p>I booked here and it was amazing!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="container mt-5 d-flex justify-content-center">
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" href="#" role="button">Contact Us</a>
+      </p>
+    </footer>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      let images = document.querySelectorAll('img');
+      for(let i = 0; i < images.length; i++){
+        images[i] = images[i].length;
+      }
+      alert("amount of vacations listed:",images)
+    
+
+    </script>
+  </body>
+</html>
