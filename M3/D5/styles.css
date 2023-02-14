@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+body{
+    font-family: 'Inter', sans-serif; 
+}
+.btn-primary {
+    background-color: rgb(30, 255, 49);
+    color: white;
+    font-weight: bold;
+  }
+  .btn-secondary {
+    color: black;
+    font-weight: bold;
+  }
+  .container-colour {
+    background-color: rgb(79, 3, 255);
+  }
+  .para{
+    opacity: 70%;
+  }
+  .remainder-of-page{
+    margin-top: 80px;
+  }
+  .price-reduction{
+    opacity: 50%;
+    text-decoration: line-through;
+    font-weight: 100;
+  }
+  .card-border{
+    border-radius: 10px;
+  }
