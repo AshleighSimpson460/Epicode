@@ -13,13 +13,14 @@ body{
     font-weight: bold;
   }
   .container-colour {
-    background-color: rgb(79, 3, 255);
+    background-color: rgb(113, 52, 255);
   }
   .para{
     opacity: 70%;
   }
   .remainder-of-page{
-    margin-top: 80px;
+    background-color: rgb(245, 245, 245);
+    padding-top: 20px;
   }
   .price-reduction{
     opacity: 50%;
@@ -29,3 +30,81 @@ body{
   .card-border{
     border-radius: 10px;
   }
+  .course-stats{
+    border-bottom: solid 2px gainsboro;
+  }
+  .btn-font{
+    font-size: 16px;
+  }
+  .icon{
+    color: rgb(189, 118, 57);
+    width: 2rem;
+    height: 2rem;
+    line-height: 1rem;
+  }
+
+  .icon-border{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bg-colour{
+    background-color: peachpuff;
+  }
+
+  .star-icons,
+  .star-text{
+    color: orange;
+    font-size: small;
+  }  
+  .amount{
+    color: black;
+    opacity: 60%;
+  }
+
+  .arrow-L,
+  .arrow-R{
+    position: absolute;
+    top: 50%;
+    border: 1px solid rgb(218, 218, 218);
+    background-color: white;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-50%);
+  }
+
+  div.remainder-of-page .card .card-footer small{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  footer{
+    background-color: rgb(245, 245, 245);
+  }
+  .bi-bar-chart-fill{
+    color: rgb(203, 0, 253);
+  }
+
+  .arrow-L{
+    left: 0px;
+    top: 50%;
+  }
+  .arrow-R{
+    right: 0px;
+    top: 50%;
+  }
+
+  @media (min-width: 992px){
+  .arrow-L{
+    left: -40px;
+  }
+  .arrow-R{
+    right: -40px;
+  }
+}
+
+  
