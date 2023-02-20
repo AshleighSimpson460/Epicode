@@ -1,0 +1,66 @@
+body {
+    background-color: bisque;
+  }
+  .homepage {
+    padding-top: 5rem;
+    border-bottom: solid 1px rgb(197, 197, 197);
+  }
+  .container {
+    padding-bottom: 2rem;
+    border-bottom: solid 1px rgb(197, 197, 197);
+  }
+  .Carousel-container {
+    padding-top: 3rem;
+  }
+  .favourite{
+    padding-top: 1rem;
+    border-bottom: solid 1px rgb(197, 197, 197);
+    box-shadow: 20px 10px 20px grey;
+    backface-visibility: hidden;
+    transition: .5s ease;
+  }
+
+  .album-image {
+    width: 100%;
+  }
+  .album-tracks{
+    color: aqua;
+  }
+  img.bornsinner{
+    z-index: 1;
+  }
+  .subtitle {
+    padding-top: 1rem;
+    color: black;
+  }
+  .title {
+    font-weight: bold;
+  }
+  .text {
+    font-weight: bold;
+  }
+  .row-gap {
+    gap: 0;
+  }
+  .tapestry-row {
+    padding-right: 0;
+    padding-bottom: 0;
+  }
+  .tapestry-img {
+    width: 100%;
+  }
+  .carousel {
+    width: 640px;
+  }
+  button {
+    background-color: yellow;
+  }
+  .Add-song:hover{
+    box-shadow: 10px 10px 10px gray;
+  }
+  .badge-properties{
+    display: flex;
+    justify-content: start;
+    height: 20px;
+    width: 60px;
+  }

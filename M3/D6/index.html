@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>D6 exercise</title>
+  </head>
+  <body>
+    <nav
+      class="navbar fixed-top navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-dark bg-dark"
+    >
+      <a class="navbar-brand Home" href="">My Albums</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav-collapsed">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#homescreen">Home</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#Tapestry-tab">Tapestry </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#number1Album">My Favourite Album </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#carouselimages">Wall of Shame!</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="jumbotron bg-white text-center">
+      <h1 class="display-4 font-weight-bold">Welcome to my Album webpage</h1>
+      <p class="lead">
+        This webpage is about majority of the musics I listen to. I listen to a
+        wide variety of music but I just added images of albums I know of. In
+        the wall of shame section. I did not have any ideas so I got the worst
+        albums from googles worst rated albums.
+      </p>
+      <hr class="my-4" />
+      <p>
+        To see the wall of shame click the button below to see googles worst
+        rated albums.
+      </p>
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" href="#carouselimages" role="button"
+          >Wall Of Shame!</a
+        >
+      </p>
+    </div>
+    <div class="homepage" id="homescreen">
+      <h1 class="text-center mb-5">My top 8 albums</h1>
+      <div class="row px-3 py-3">
+        <div class="col-6 col-md-4 col-lg-3 py-3">
+          <div class="card text-center container-body" style="overflow: hidden">
+            <div class="card-body">
+              <span class="badge badge-primary badge-properties">Hip-Hop</span>
+              <h4 class="card.title title">Born Sinner</h4>
+              <img
+                src="https://images.rapgenius.com/du5la4ufky2am3awtswe549ad.1000x1000x1.jpg"
+                class="img-img-top album-image"
+                alt="born-sinner-album-cover"
+              />
+              <h5 class="card.subtitle subtitle">J Cole</h5>
+              <p class="card-text text-muted">Released: 18 June 2013</p>
+              <p class="card-text text">Duration of the Album: 59:28m</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 py-3">
+          <div class="card text-center container-body" style="overflow: hidden">
+            <div class="card-body">
+              <span class="badge badge-primary badge-properties">Hip-Hop</span>
+              <h4 class="card.title title">The Sideline Story</h4>
+              <img
+                src="https://media.pitchfork.com/photos/5929b1445e6ef959693220cd/1:1/w_600/b10c0781.jpeg"
+                class="img-img-top album-image"
+                alt="the-sideline-story-album-cover"
+              />
+              <h5 class="card.subtitle subtitle">J Cole</h5>
+              <p class="card-text text-muted">Released: 27 September 2011</p>
+              <p class="card-text text">Duration of the Album: 57:43m</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 py-3">
+          <div class="card text-center container-body" style="overflow: hidden">
+            <div class="card-body">
+              <span class="badge badge-primary badge-properties">Hip-Hop</span>
+              <h4 class="card.title title">Good Kid M.a.a.d City</h4>
+              <img
+                src="https://www.whatrecords.co.uk/media/s_products/s_products93549a.jpg"
+                class="img-img-top album-image"
+                alt="Good-Kid-Mad-City-album-cover"
+              />
+              <h5 class="card.subtitle subtitle">Kendrick Lamar</h5>
+              <p class="card-text text-muted">Released: 22 October 2012</p>
+              <p class="card-text text">Duration of the Album: 68:23m</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 py-3">
+          <div class="card text-center container-body" style="overflow: hidden">
+            <div class="card-body">
+              <span class="badge badge-primary badge-properties">Hip-Hop</span>
+              <h4 class="card.title title">
+                My Beautiful Dark Twisted Fantasy
+              </h4>
+              <img
+                src="https://m.media-amazon.com/images/I/71EYmWxcmdL._AC_SL1400_.jpg"
+                class="img-img-top album-image"
+                alt="My-Beautiful-dark-twisted-fantasy-album-cover"
+              />
+              <h5 class="card.subtitle subtitle">Kanye West</h5>
+              <p class="card-text text-muted">Released: 22 November 2010</p>
+              <p class="card-text text">Duration of the Album: 68:39m</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 py-3">
+          <div class="card text-center container-body" style="overflow: hidden">
+            <div class="card-body">
+              <span class="badge badge-primary badge-properties">Hip-Hop</span>
+              <h4 class="card.title title">In Abundance</h4>
+              <img
+                src="https://i.scdn.co/image/ab67616d0000b273e6778eb47c6b217e4412850d"
+                class="img-img-top album-image"
+                alt="in-abundance-album-cover"
+              />
+              <h5 class="card.subtitle subtitle">Playboi Carti</h5>
+              <p class="card-text text-muted">Released: 30 September 2016</p>
+              <p class="card-text text">Duration of the Album: 57:35m</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 py-3">
+          <div class="card text-center container-body" style="overflow: hidden">
+            <div class="card-body">
+              <span class="badge badge-primary badge-properties">Hip-Hop</span>
+              <h4 class="card.title title">Take Care</h4>
+              <img
+                src="https://upload.wikimedia.org/wikipedia/en/thumb/a/ae/Drake_-_Take_Care_cover.jpg/220px-Drake_-_Take_Care_cover.jpg"
+                class="img-img-top album-image"
+                alt="take-care-album-cover"
+              />
+              <h5 class="card.subtitle subtitle">Drake</h5>
+              <p class="card-text text-muted">Released: 15 November 2011</p>
+              <p class="card-text text">Duration of the Album: 80:18m</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 py-3">
+          <div class="card text-center container-body" style="overflow: hidden">
+            <div class="card-body">
+              <span class="badge badge-primary badge-properties">Pop,Rock</span>
+              <h4 class="card.title title">Demon Dayz</h4>
+              <img
+                src="https://m.media-amazon.com/images/I/71lix6+VfWL._AC_SL1425_.jpg"
+                class="img-img-top album-image"
+                alt="demon-days-album-cover"
+              />
+              <h5 class="card.subtitle subtitle">Gorillaz</h5>
+              <p class="card-text text-muted">Released: 11 May 2005</p>
+              <p class="card-text text">Duration of the Album: 51:42m</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4 col-lg-3 py-3">
+          <div class="card text-center container-body" style="overflow: hidden">
+            <div class="card-body">
+              <span class="badge badge-primary badge-properties">Pop,Rock</span>
+              <h4 class="card.title title">RIOT!</h4>
+              <img
+                src="https://m.media-amazon.com/images/I/91b6aYwjwjL._AC_SL1425_.jpg"
+                class="img-img-top album-image"
+                alt="RIOT!-album-cover"
+              />
+              <h5 class="card.subtitle subtitle">Paramore</h5>
+              <p class="card-text text-muted">Released: 12 June 2007</p>
+              <p class="card-text text">Duration of the Album: 38:58m</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="Tapestry" id="Tapestry-tab">
+        <h1 class="display-4 text-center title">My Own Tapestry</h1>
+        <div class="row px-3 py-3 row-gap">
+          <div class="col-6 col-md-4 col-lg-3 pl-0 tapestry-row">
+            <div class="card" style="overflow: hidden">
+              <div class="card-body tapestry-img">
+                <img
+                  src="https://m.media-amazon.com/images/I/71VQFsqlPJL._AC_SX466_.jpg"
+                  class="img-img-top album-image"
+                  alt="future-nostalgia-album-cover"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 pl-0 tapestry-row">
+            <div class="card" style="overflow: hidden">
+              <div class="card-body tapestry-img">
+                <img
+                  src="https://m.media-amazon.com/images/I/51jOjrHxQSL._AC_SX466_.jpg"
+                  class="img-img-top album-image"
+                  alt="Graduation-album-cover"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 pl-0 tapestry-row">
+            <div class="card" style="overflow: hidden">
+              <div class="card-body tapestry-img">
+                <img
+                  src="https://m.media-amazon.com/images/I/8127ICDt45L._AC_SX679_.jpg"
+                  class="img-img-top album-image"
+                  alt="born-to-run-album-cover"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 pl-0 tapestry-row">
+            <div class="card" style="overflow: hidden">
+              <div class="card-body tapestry-img">
+                <img
+                  src="https://i1.sndcdn.com/artworks-000513619599-2bhg91-t500x500.jpg"
+                  class="img-img-top album-image"
+                  alt="ocean-avenue-album-cover"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 pl-0 tapestry-row">
+            <div class="card" style="overflow: hidden">
+              <div class="card-body tapestry-img">
+                <img
+                  src="https://m.media-amazon.com/images/I/81DzVOtW+kL._AC_SL1400_.jpg"
+                  class="img-img-top album-image"
+                  alt="beerbongs-and-bentleys-album-cover"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 pl-0 tapestry-row">
+            <div class="card" style="overflow: hidden">
+              <div class="card-body tapestry-img">
+                <img
+                  src="https://m.media-amazon.com/images/I/91CLL0FhHbL._AC_SL1500_.jpg"
+                  class="img-img-top album-image"
+                  alt="Leftoverture-album-cover"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 pl-0 tapestry-row">
+            <div class="card" style="overflow: hidden">
+              <div class="card-body tapestry-img">
+                <img
+                  src="https://i.scdn.co/image/ab67616d0000b273e9e1b95f0f893b66b2605035"
+                  class="img-img-top album-image"
+                  alt="Drip-season-3-album-cover"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 pl-0 tapestry-row">
+            <div class="card" style="overflow: hidden">
+              <div class="card-body tapestry-img">
+                <img
+                  src="https://www.rap-up.com/wp-content/uploads/2022/04/gunna-ds4.jpg"
+                  class="img-img-top album-image"
+                  alt="DS4EVER-album-cover"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 pl-0 tapestry-row">
+            <div class="card" style="overflow: hidden">
+              <div class="card-body tapestry-img">
+                <img
+                  src="https://paramore.warnerartists.net/on/demandware.static/-/Sites-warner-master/default/dw6b193dd7/pdp-img-eu/paramorealbumcover2.jpg"
+                  class="img-img-top album-image"
+                  alt="Paramore-album-cover"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 pl-0 tapestry-row">
+            <div class="card" style="overflow: hidden">
+              <div class="card-body tapestry-img">
+                <img
+                  src="https://i.scdn.co/image/ab67616d0000b273a4dfa7122ec07fe3a1af22e7"
+                  class="img-img-top album-image"
+                  alt="nothing-was-the-same-album-cover"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 pl-0 tapestry-row">
+            <div class="card" style="overflow: hidden">
+              <div class="card-body tapestry-img">
+                <img
+                  src="https://preview.redd.it/qz1urpm81px31.jpg?auto=webp&s=36c4c5e951d26c20ed79067117740c203fc3aa70"
+                  class="img-img-top album-image"
+                  alt="slime-season-2-album-cover"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 pl-0 tapestry-row">
+            <div class="card" style="overflow: hidden">
+              <div class="card-body tapestry-img">
+                <img
+                  src="https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2015/3/11/1426099817173/f1efb3f4-9a6d-4f78-8ca8-594ab646d198-bestSizeAvailable.jpeg?width=465&quality=85&dpr=1&s=none"
+                  class="img-img-top album-image"
+                  alt="to-pimp-a-butterfly-album-cover"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 pl-0 tapestry-row">
+            <div class="card" style="overflow: hidden">
+              <div class="card-body tapestry-img">
+                <img
+                  src="https://m.media-amazon.com/images/I/61e1jTOHxsL._AC_SX466_.jpg"
+                  class="img-img-top album-image"
+                  alt="carter-3-album-cover"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 pl-0 tapestry-row">
+            <div class="card" style="overflow: hidden">
+              <div class="card-body tapestry-img">
+                <img
+                  src="https://images.complex.com/complex/images/c_fill,dpr_auto,f_auto,q_auto,w_1400/fl_lossy,pg_1/ynkyegsjswczp3ibybwe/post-cover?fimg-ssr-default"
+                  class="img-img-top album-image"
+                  alt="twelve-carat-toothache-album-cover"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 pl-0 tapestry-row">
+            <div class="card" style="overflow: hidden">
+              <div class="card-body tapestry-img">
+                <img
+                  src="https://i.scdn.co/image/ab67616d0000b273894a761abf954838a84c8db9"
+                  class="img-img-top album-image"
+                  alt="Stoney-album-cover"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 pl-0 tapestry-row">
+            <div class="card" style="overflow: hidden">
+              <div class="card-body tapestry-img">
+                <img
+                  src="https://i.scdn.co/image/ab67616d0000b2737fcead687e99583072cc217b"
+                  class="img-img-top album-image"
+                  alt="beauty-behind-the-madness-album-cover"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 pl-0 tapestry-row">
+            <div class="card" style="overflow: hidden">
+              <div class="card-body tapestry-img">
+                <img
+                  src="data:image/jpeg;base64,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"
+                  class="img-img-top album-image"
+                  alt="purpose-album-cover"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 pl-0 tapestry-row">
+            <div class="card" style="overflow: hidden">
+              <div class="card-body tapestry-img">
+                <img
+                  src="https://i.scdn.co/image/ab67616d0000b2736f69d435d17c00bedb74cca0"
+                  class="img-img-top album-image"
+                  alt="more-life-album-cover"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 pl-0 tapestry-row">
+            <div class="card" style="overflow: hidden">
+              <div class="card-body tapestry-img">
+                <img
+                  src="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F6%2F2016%2F04%2Fdrake.jpg&q=60"
+                  class="img-img-top album-image"
+                  alt="views-album-cover"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3 pl-0 tapestry-row">
+            <div class="card" style="overflow: hidden">
+              <div class="card-body tapestry-img">
+                <img
+                  src="https://i.scdn.co/image/ab67616d0000b273eac94393568883ab1e9d6c7d"
+                  class="img-img-top album-image"
+                  alt="Grateful-album-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="FavouriteAlbum favourite" id="number1Album">
+      <h1 class="display-4 text-center title">My Favourite Album</h1>
+      <div class="row px-3 py-3 justify-content-center">
+        <div class="col-8">
+          <div
+            class="card text-center album-favourite"
+            style="overflow: hidden"
+          >
+            <div class="card-body">
+              <h4 class="card.title title">Born Sinner</h4>
+              <img
+                src="https://images.rapgenius.com/du5la4ufky2am3awtswe549ad.1000x1000x1.jpg"
+                class="img-img-top album-image bornsinner"
+                alt="born-sinner-album-cover"
+              />
+              <h5 class="card.subtitle subtitle">J Cole</h5>
+              <p class="card-text text">Genre: HipHop</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <h1 class="mt-2">Album tracklist</h1>
+        <div class="row">
+          <div class="col-12">
+            <table class="table album-tracks" id="track-table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Song</th>
+                  <th scope="col">Features</th>
+                  <th scope="col">Duration</th>
+                  <th scope="col">DELETE</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Villuminati</td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <button
+                      type="button"
+                      class="btn btn-outline-danger remove-btn"
+                      onclick="removeButton"
+                    >
+                      Danger
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">2</th>
+                  <td>Kerney Sermon (SKIT)</td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <button
+                      type="button"
+                      class="btn btn-outline-danger remove-btn"
+                      onclick="removeButton"
+                    >
+                      Danger
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">3</th>
+                  <td>Land of the snakes</td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <button
+                      type="button"
+                      class="btn btn-outline-danger remove-btn"
+                      onclick="removeButton"
+                    >
+                      Danger
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">4</th>
+                  <td>Power Trip</td>
+                  <td>Miguel</td>
+                  <td></td>
+                  <td>
+                    <button
+                      type="button"
+                      class="btn btn-outline-danger remove-btn"
+                      onclick="removeButton"
+                    >
+                      Danger
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">5</th>
+                  <td>Mo Money</td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <button
+                      type="button"
+                      class="btn btn-outline-danger remove-btn"
+                      onclick="removeButton"
+                    >
+                      Danger
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">6</th>
+                  <td>Trouble</td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <button
+                      type="button"
+                      class="btn btn-outline-danger remove-btn"
+                      onclick="removeButton"
+                    >
+                      Danger
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">7</th>
+                  <td>Run away</td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <button
+                      type="button"
+                      class="btn btn-outline-danger remove-btn"
+                      onclick="removeButton"
+                    >
+                      Danger
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">8</th>
+                  <td>She know</td>
+                  <td>Amber Coffman</td>
+                  <td></td>
+                  <td>
+                    <button
+                      type="button"
+                      class="btn btn-outline-danger remove-btn"
+                      onclick="removeButton"
+                    >
+                      Danger
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">9</th>
+                  <td>Rich</td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <button
+                      type="button"
+                      class="btn btn-outline-danger remove-btn"
+                      onclick="removeButton"
+                    >
+                      Danger
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">1</th>
+                  <td>Wheres Jermaine (SKIT)</td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <button
+                      type="button"
+                      class="btn btn-outline-danger remove-btn"
+                      onclick="removeButton"
+                    >
+                      Danger
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">10</th>
+                  <td>Forbidden fruit</td>
+                  <td>Kendrick Lamar</td>
+                  <td></td>
+                  <td>
+                    <button
+                      type="button"
+                      class="btn btn-outline-danger remove-btn"
+                      onclick="removeButton"
+                    >
+                      Danger
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">11</th>
+                  <td>Chaining day</td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <button
+                      type="button"
+                      class="btn btn-outline-danger remove-btn"
+                      onclick="removeButton"
+                    >
+                      Danger
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">12</th>
+                  <td>Crooked Smile</td>
+                  <td>TLC</td>
+                  <td></td>
+                  <td>
+                    <button
+                      type="button"
+                      class="btn btn-outline-danger remove-btn"
+                      onclick="removeButton"
+                    >
+                      Danger
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">13</th>
+                  <td>Let nas down</td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <button
+                      type="button"
+                      class="btn btn-outline-danger remove-btn"
+                      onclick="removeButton"
+                    >
+                      Danger
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">14</th>
+                  <td>Born Sinner</td>
+                  <td>James Fauntleroy</td>
+                  <td></td>
+                  <td>
+                    <button
+                      type="button"
+                      class="btn btn-outline-danger remove-btn"
+                      onclick="removeButton"
+                    >
+                      Danger
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <button
+              type="button"
+              class="btn btn-primary Add-song"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              data-bs-whatever="@mdo"
+            >
+              Add Track
+            </button>
+            <div
+              class="modal fade"
+              id="exampleModal"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">
+                      New message
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="mb-3 col-6">
+                      <label for="recipient-name" class="col-form-label"
+                        >Track Number:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="Track-num"
+                      />
+                    </div>
+                    <div class="mb-3 col-6">
+                      <label for="message-text" class="col-form-label"
+                        >Track Title:</label
+                      >
+                      <textarea
+                        class="form-control"
+                        id="Track-title"
+                      ></textarea>
+                    </div>
+                    <div class="mb-3 col-6">
+                      <label for="recipient-name" class="col-form-label"
+                        >Feature Name:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="Feature-name"
+                      />
+                    </div>
+                    <div class="mb-3 col-6">
+                      <label for="recipient-name" class="col-form-label"
+                        >Track Duration:</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="Duration"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button type="button" class="btn btn-primary">
+                    Add song!
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="Carousel-container" id="carouselimages">
+        <h1 class="display-4 text-center title">Wall of Shame!</h1>
+        <div class="row px-3 py-3 justify-content-center">
+          <div
+            id="carouselAutoplaying"
+            class="carousel carousel-dark slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-indicators py-2">
+              <button
+                type="button"
+                data-bs-target="#carouselAutoplaying"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselAutoplaying"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"
+              ></button>
+              <button
+                type="button"
+                data-bs-target="#carouselAutoplaying"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"
+              ></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  src="https://cdn2.albumoftheyear.org/375x/album/109256-playdough-cooked-in-tea.jpg"
+                  class="d-block w-100"
+                  alt="playdough-cooked-in-tea-album-img"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="https://cdn2.albumoftheyear.org/375x/album/570917-renegade-1.jpg"
+                  class="d-block w-100"
+                  alt="renegade-album-img"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="https://cdn2.albumoftheyear.org/375x/album/175574-ghostories.jpg"
+                  class="d-block w-100"
+                  alt="Ghoststories-album-img"
+                />
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselAutoplaying"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden"></span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselAutoplaying"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <script
+        src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+        crossorigin="anonymous"
+      ></script>
+      <script>
+        const removeButton = function (remove) {
+          const buttonClick = document
+            .getElementsById("track-table")
+            .deleteRow(0);
+        };
+      </script>
+    </div>
+  </body>
+</html>
