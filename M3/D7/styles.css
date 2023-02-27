@@ -33,7 +33,7 @@ body{
     background-color: rgb(253, 0, 42);
     border-radius: 50%;
     animation-name: bounce, shapechange;
-    animation-duration: 0.8s, 0.8s;
+    animation-duration: 1s, 1s;
     animation-fill-mode: both, both;
     animation-delay: 1s, 1s;
     animation-iteration-count: infinite;
