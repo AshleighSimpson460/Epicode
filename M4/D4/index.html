@@ -31,7 +31,8 @@
         <ul id="cart"></ul>
       </div>
       <div>
-         <h3 id="total">Price</h3>
+         <h3>Price</h3>
+         <p id="total"></p>
       </div>
     </div>
     <div class="container">
@@ -39,7 +40,7 @@
     </div>
     <script>
       const cart = [];
-      const price = 0
+      const price = []
       const cartList = document.getElementById("cart");
 
       const bookShelf = "https://striveschool-api.herokuapp.com/books";
@@ -57,7 +58,7 @@
                 <div class="card-body">
                 <h5 class="card-title">${bookShelfAPI[i].title}</h5>
                 <p class="card-text">
-                    <p class="price" style="font-weight: bold;">Price: ${bookShelfAPI[i].price}</p>
+                    <p style="font-weight: bold;">Price: <span class="price">${bookShelfAPI[i].price}</span></p>
                     <p style="font-weight: bold;">Genre: ${bookShelfAPI[i].category}</p>
                 </p>
                 <button class="btn btn-primary" onclick ="hideElement(event)">Skip</button>
@@ -84,21 +85,32 @@
         cartList.appendChild(newLi);
         document.getElementById("cart-container").style.display =
           "inline-block";
-        document.querySelector('#removebtn').style.display = "inline-block"
+        parent.querySelector('#removebtn').style.display = "inline-block"
 
         const total = document.getElementById('total');
-        const cartTotal = total.innerText
 
-        cartTotal.innerHTML += ``
+        const bookPrice = parent.querySelector(".price").innerText;
+        
+        const converted = parseFloat(Number(bookPrice).toFixed(2))
+        price.push(converted)
+
+        total.innerText = "£" + parseFloat(price.reduce((a,b) => a +b, 0)).toFixed(2)
       };
       const removeBook = function(event){
-      const close = document.getElementById('removebtn')
-        for(let i = 0; i < close.length; i++){
-          close[i].addEventListener('click',() => {
-            close[i].parentElement.style.display = "none";
-          })
+            // event.target.parentElement.parentElement.style.display = "none";
+            const bookTitle = event.target.parentNode.querySelector(".card-title").innerText
+            const bookPrice = event.target.parentNode.querySelector(".price").innerText
+            const allList = document.querySelectorAll('#cart-container li')
+            const listPrice = document.querySelector('#cart-container p')
+            for(let i = 0; i < allList.length; i++){
+              if(bookTitle === allList[i].innerText){
+                allList[i].remove()
+              }
+            }
+            const newPrice = Number(listPrice.innerText.replace("£",'')) - Number(bookPrice)
+            listPrice.innerText = "£" + parseFloat(newPrice).toFixed(2)
         }
-      }
+      
       
       const displayTotal = function(event){
         
