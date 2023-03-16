@@ -69,7 +69,7 @@
         return response.json();
       })
       .then(secondaryPic => {console.log(secondaryPic.photos)
-        picture.innerHTML = ''
+-        picture.innerHTML = ''
         for(let i = 0; i < secondaryPic.photos.length; i++){
           picture.innerHTML +=  `<div class="card p-2" style="width: 18rem">
                 <img src="${secondaryPic.photos[i].src.medium}" class="card-img-top" alt="..." />
