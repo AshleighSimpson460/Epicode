@@ -15,13 +15,18 @@
     <div class="container">
       <div class="row">
         <div class="col-2 mt-3">
-          <select class="form-select" aria-label="Default select example">
-            <option selected>All</option>
-            <option value="1" id="btn-name" onclick="filterByName()">
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            id="dropdown"
+            onchange="filterByName()"
+          >
+            <option>Choose one..</option>
+            <option value="name" id="btn-name">
               Name
             </option>
-            <option value="2" id="btn-email">Email</option>
-            <option value="3" id="btn-username">Username</option>
+            <option value="email" id="btn-email">Email</option>
+            <option value="username" id="btn-username">Username</option>
           </select>
         </div>
       </div>
@@ -79,10 +84,10 @@
           tableAPI.innerHTML += `
             <tr class="tableDetails">
               <td class="idNumber">${response[i].id}</td>
-              <td class="firstname">${response[i].name}</td>
+              <td class="name">${response[i].name}</td>
               <td class="username">${response[i].username}</td>
               <td class="email">${response[i].email}</td>
-              <button class="redirect" onclick="redirect(event)">redirect</button>
+              <td class="redirect"><a href="https://jsonplaceholder.typicode.com/users/${response[i].id}"><button>redirect</button></a></td>
             </tr>
             `;
         }
@@ -108,33 +113,19 @@
       const searchTable = function () {
         const searchEngine = document.getElementById("search-engine");
         const filter = searchEngine.value.toLowerCase();
-        const tableRows = document.querySelectorAll(".tableDetails");
-
-        tableRows.forEach((rows) => {
+        const redirect = document.querySelectorAll(".redirect");
+        const selectValue = document.getElementById("dropdown");
+        const search = document.querySelectorAll(`.${selectValue.value}`);
+        
+        search.forEach((rows) => {
           let rowContent = rows.textContent;
           if (rowContent.toLowerCase().includes(filter.toLowerCase())) {
-            rows.style.display = "";
+            rows.parentElement.style.display = "";
           } else {
-            rows.style.display = "none";
+            rows.parentElement.style.display = "none";
           }
         });
       };
-
-      //btn-name
-      //btn-email
-      //btn-username
-      //   const btnName = document.getElementById('btn-name')
-      //   const btnEmail = document.getElementById('btn-email')
-      //   const btnUsername = document.getElementById('btn-username')
-      const filterByName = function () {
-        const btnName = document.getElementById("btn-name");
-        const table = document.getElementsByTagName("td");
-      };
-
-      const redirect = function(event){
-        let click = event.target
-
-      }
     </script>
   </body>
 </html>
