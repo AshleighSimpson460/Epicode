@@ -18,7 +18,7 @@
     background-color: red;
 }
 
-.nav span:nth-of-type(2n){
+.nav span:last-of-type{
     background-color: yellow;
 }
 
