@@ -1,3 +1,3 @@
-const APIURL = "https://striveschool-api.herokuapp.com/api/comments/0316389706";
+const APIURL = "https://striveschool-api.herokuapp.com/api/comments/";
 
 export default APIURL;

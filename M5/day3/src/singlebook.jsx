@@ -2,7 +2,7 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/esm/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import FetchAPI from "./FetchAPI";
+import Comments from "./Comments";
 import { useState } from "react";
 
 const Singlebook = (props) => {
@@ -13,8 +13,11 @@ const [style, setStyle] = useState(false);
           <Card style={{ width: "15rem" , border: style ? "2px solid red" : ""}} onClick={() => setStyle(true)}>
             <Card.Img variant="top" src={props.book?.img} />
             <Card.Body>
+
               <Card.Title>{props.book?.title}</Card.Title>
+              {style?<Comments id={props.book?.asin}/> : ""}
             </Card.Body>
+
           </Card>
         </Col>
     </>
