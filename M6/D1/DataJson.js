@@ -1,4 +1,5 @@
-[
+const DataJson = 
+  [
   {
     "_id": 1,
     "category": "Getting Started",
@@ -64,3 +65,5 @@
     "createdAt": "25 Nov 2020"
   }
 ]
+
+export default DataJson;

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "mongosh": "^1.8.1"
+  }
+}
