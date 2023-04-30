@@ -62,11 +62,14 @@ server.get("/", (req, res) => {
   res.send('Hello from server');
 });
 
-server.use("/Posts", DataRouter)
-server.use(FirstMiddleware)
-server.use(bodyParserMW)
+server.use("/Posts", DataRouter);
+server.use(FirstMiddleware);
+server.use(bodyParserMW);
 
-  
+server.all("*", (req, res) => {
+  res.statusCode = 404;
+  res.send("Not found");
+});
 
 // server.put('/posts', (req, res) => {
 //   console.log('request to /posts has been acknowledged',DataJson);
