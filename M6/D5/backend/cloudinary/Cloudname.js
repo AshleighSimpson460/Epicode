@@ -1,0 +1,1 @@
+export const CLOUDINARY_URL = 'CLOUDINARY_URL=cloudinary://166342841273925:BUa-kRvEV34pb_PgW0-jg83iAbI@dv41vcwmd'

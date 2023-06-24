@@ -1,8 +1,8 @@
-import express from "express"
-import mongoose from "mongoose" //ORM
-import bodyParser from "body-parser"
+import express from "express";
+import mongoose from "mongoose"; //ORM
+import bodyParser from "body-parser";
 
-import { router as DataRouter } from "./routers/routes.js"
+import { router as DataRouter } from "./routers/routes.js";
 
 /* Below is how to add the object to MongoDB (_id & _fields? are already added)
 
@@ -41,7 +41,7 @@ if middleware does not need to go further down the chain you do not need 'next' 
 
 const server = express();
 
-const bodyParserMW = bodyParser.json({type: "*/*"});
+const bodyParserMW = bodyParser.json({ type: "*/*" });
 
 const FirstMiddleware = (request, _, next) => {
   console.log(`${request.method} request to ${request.path} has arrived`);
@@ -49,17 +49,18 @@ const FirstMiddleware = (request, _, next) => {
   next();
 };
 
-
 mongoose
-  .connect("mongodb+srv://ashleighsimpson2016:YHIZ5C8y28mhvwBR@d1epicode.ql48cwm.mongodb.net/test")
+  .connect(
+    "mongodb+srv://ashleighsimpson2016:YHIZ5C8y28mhvwBR@d1epicode.ql48cwm.mongodb.net/test"
+  )
   .then(() => console.log("connecting is done"))
   .then(() => {
-    server.listen(3002)
-  })
-  
+    server.listen(3002);
+  });
+
 server.get("/", (req, res) => {
   res.statusCode = 200;
-  res.send('Hello from server');
+  res.send("Hello from server");
 });
 
 server.use("/Posts", DataRouter);
