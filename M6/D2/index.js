@@ -14,12 +14,10 @@ const LMW = (request, _, next) => {
 };
 
 //BPMW = BodyParserMiddleWare
-const BPMW = bodyParser.json({type: '*/*'});
+const BPMW = bodyParser.json({ type: "*/*" });
 
 mongoose
-  .connect(
-    "mongodb+srv://ashleighsimpson2016:YHIZ5C8y28mhvwBR@d1epicode.ql48cwm.mongodb.net/test"
-  )
+  .connect(process.env.Mongoose_Key)
   .then(() => console.log("connecting is done"))
   .then(() => {
     app.listen(3002);
@@ -35,6 +33,6 @@ app.use(LMW);
 app.use(BPMW);
 
 app.all("*", (req, res) => {
-    res.statusCode = 404;
-    res.send("Not found");
-  });
+  res.statusCode = 404;
+  res.send("Not found");
+});

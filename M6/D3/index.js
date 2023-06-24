@@ -13,19 +13,15 @@ const LMW = (request, _, next) => {
   next();
 };
 
-
 //BPMW = BodyParserMiddleWare
 
 app.use("/D3", Data);
 app.use(LMW);
-app.use(bodyParser.json({type: '*/*'}));
+app.use(bodyParser.json({ type: "*/*" }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
 mongoose
-  .connect(
-    "mongodb+srv://ashleighsimpson2016:YHIZ5C8y28mhvwBR@d1epicode.ql48cwm.mongodb.net/test"
-  )
+  .connect(process.env.Mongoose_Key)
   .then(() => console.log("connecting is done"))
   .then(() => {
     app.listen(3002);
@@ -36,9 +32,7 @@ app.get("/", (req, res) => {
   res.send("I am connected from server side");
 });
 
-
-
 app.all("*", (req, res) => {
-    res.statusCode = 404;
-    res.send("Not found");
-  });
+  res.statusCode = 404;
+  res.send("Not found");
+});

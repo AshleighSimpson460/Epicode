@@ -10,9 +10,7 @@ app.use("/blogs", blogSchemaRouter);
 app.use("/comment", commentRouter);
 
 mongoose
-  .connect(
-    "mongodb+srv://ashleighsimpson2016:YHIZ5C8y28mhvwBR@d1epicode.ql48cwm.mongodb.net/test"
-  )
+  .connect(process.env.Mongoose_Key)
   .then(() => console.log("connecting is done"))
   .then(() => {
     app.listen(3002);

@@ -1,7 +1,7 @@
 // import Comments from "./Components/Fetch/comments.tsx";
 // import Categories from "./ExpenseTracker/categories.tsx";
 // import ColorModeSwitch from "./Components/ColorModeSwitch.tsx";
-// import Users from "./Components/Fetch/users.tsx";
+import Users from "./Components/Fetch/users.tsx";
 import { Grid, GridItem, Show } from "@chakra-ui/react";
 import NavBar from "./Components/NavBar.tsx";
 
@@ -19,7 +19,9 @@ function App() {
       <Show above="lg">
         <GridItem area="aside">aside</GridItem>
       </Show>
-      <GridItem area="main">main</GridItem>
+      <GridItem area="main">
+        <Users />
+      </GridItem>
     </Grid>
   );
 }

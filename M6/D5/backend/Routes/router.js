@@ -32,9 +32,7 @@ router.get("/blog/:id/comments", async (req, res) => {
   res.json(blogPost.comments);
 });
 
-sgMail.setApiKey(
-  "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"
-);
+sgMail.setApiKey(process.env.setApiKey);
 
 router.post("/blog/:id/comments", async (req, res) => {
   const blogPost = await blog.findById(req.params.id).populate("comments");
@@ -64,7 +62,7 @@ router.post("/blog/:id/comments", async (req, res) => {
     text: `Your blog post has been published ${author} has been published. Here is the content ${content}`,
   };
 
-  await sgMail.send(msg)
+  await sgMail.send(msg);
 
   res.status(200).json(comment);
 });
@@ -90,11 +88,11 @@ router.post("/register", async (req, res) => {
 
   const msg = {
     to: newUser.email,
-    from: 'sirak22082@aicogz.com',
-    subject: 'Thank you for signing up',
-    text: `Dear ${newUser.name}, thank you for signing up! `
-  }
+    from: "sirak22082@aicogz.com",
+    subject: "Thank you for signing up",
+    text: `Dear ${newUser.name}, thank you for signing up! `,
+  };
   await sgMail.send(msg);
 
-  res.status(200).json({ message: 'registration successful' })
-})
+  res.status(200).json({ message: "registration successful" });
+});
