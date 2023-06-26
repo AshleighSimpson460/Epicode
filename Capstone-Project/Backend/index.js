@@ -1,15 +1,16 @@
 import express from "express";
 import mongoose from "mongoose";
 import { router as restaurantRouter } from "./Routes/router.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 
 app.use("/restaurantPosts", restaurantRouter);
 
 mongoose
-  .connect(
-    "mongodb+srv://ashleighsimpson2016:bNDFO9rkHwCpDfTt@capstone.h2qmeam.mongodb.net/?retryWrites=true&w=majority"
-  )
+  .connect(process.env.MongoConnect)
   .then(() => console.log("connected to backend"))
   .then(() => {
     app.listen(3002);
