@@ -35,28 +35,38 @@ router.post(
 router.post(
   "/register",
   catchErrors(async (req, res) => {
+    console.log("registration request received");
+
     const { name, email, password } = req.body;
 
     if (!name || name.length < 3) {
-      throw new Error("Name must be provided and longer than 3 characters.");
+      return res
+        .status(400)
+        .json({
+          message: "Name must be provided and longer than 3 characters.",
+        });
     }
 
     const emailReg = /@/;
 
     if (!emailReg.test(email)) {
-      throw new Error("Email must have an '@'");
+      return res.status(400).json({ message: "Email must have an '@'" });
     }
     if (password.length < 8) {
-      throw new Error("Password must be at least 8 characters long.");
+      return res
+        .status(400)
+        .json({ message: "Password must be at least 8 characters long." });
     }
 
     const userExists = await User.findOne({ email });
 
     if (userExists) {
-      throw new Error("Email already in use.");
+      return res.status(400).json({ message: "Email already in use." });
     }
 
     try {
+      console.log("creating a new user");
+
       const user = new User({
         name,
         email,
@@ -64,6 +74,8 @@ router.post(
       });
 
       await user.save();
+
+      console.log("user created successfully");
 
       res.status(200).json({ message: "Registration successful" });
     } catch (error) {
