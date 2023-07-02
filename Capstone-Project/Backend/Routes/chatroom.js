@@ -8,6 +8,16 @@ export const router = express.Router();
 
 router.use(bodyParser.json({ type: "*/*" }));
 
+router.get(
+  "/",
+  Auth,
+  catchErrors(async (req, res) => {
+    const chatrooms = await Chatroom.find({});
+
+    res.json(chatrooms);
+  })
+);
+
 router.post(
   "/",
   Auth,

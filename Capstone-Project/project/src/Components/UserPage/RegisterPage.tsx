@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Button, Card, CardBody, CardHeader, Flex } from "@chakra-ui/react";
 import { showToast, showError } from "../Toaster";
 import { useNavigate } from "react-router-dom";
-import NavBar from "../NavBar.tsx";
 
 const RegisterUser = () => {
   const [name, setName] = useState("");
@@ -63,7 +62,6 @@ const RegisterUser = () => {
 
   return (
     <div>
-      <NavBar />
       <Flex h="70vh" alignItems="center" justifyContent="center">
         <Flex
           flexDirection="column"
