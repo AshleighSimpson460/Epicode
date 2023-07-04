@@ -3,7 +3,7 @@ import { Card, CardHeader, CardBody, Flex, Button } from "@chakra-ui/react";
 import { showError, showToast } from "../Toaster";
 import { useNavigate } from "react-router-dom";
 
-const LoginUser = () => {
+const LoginUser = (props: { setupSocket: () => void }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -45,6 +45,7 @@ const LoginUser = () => {
         showToast("success", "Successfully logged In");
         localStorage.setItem("C_Token", res.token);
         navigate("/chat");
+        props.setupSocket();
       })
       .catch((error) => {
         if (error && error.message) {
