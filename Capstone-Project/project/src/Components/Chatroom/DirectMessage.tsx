@@ -1,7 +1,8 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 
-const DirectMessage = ({ match, socket }) => {
-  const chatroomId = match.params.Id;
+const DirectMessage = ({ socket }) => {
+  const { id } = useParams();
   return (
     <div className="chatroomPage">
       <div className="chatroomSection">
