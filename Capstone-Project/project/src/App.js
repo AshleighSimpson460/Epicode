@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import io from "socket.io-client";
+import io, { Socket } from "socket.io-client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import LoginPage from "./Components/UserPage/LoginPage.tsx";
@@ -10,55 +10,68 @@ import IndexPage from "./Components/UserPage/indexPage.tsx";
 import Homepage from "./Components/Homepage.tsx";
 import DirectMessage from "./Components/Chatroom/DirectMessage.tsx";
 import { showError, showToast } from "./Components/Toaster.js";
+// import DirectMessageWithErrorBoundary from "./Components/Chatroom/DirectWithEB.jsx";
 
 function App() {
   const [socket, setSocket] = useState(null);
 
   const setupSocket = () => {
     const token = localStorage.getItem("C_Token");
+    console.log("token:" + token);
     if (token && !socket) {
       const newSocket = io("http://localhost:3002", {
-        query: {
+        auth: {
           token: token,
         },
       });
-      newSocket.disconnect(() => {
+
+      console.log(newSocket);
+      newSocket.on("disconnect", () => {
         setSocket(null);
-        setTimeout(setupSocket, 3000);
-        showToast("error", "You have been disconnected");
+        setTimeout(setupSocket, 6000);
+        showToast("success", "You have been disconnected");
       });
 
-      newSocket.connect(() => {
-        showError("success", "You have connected successfully");
+      newSocket.on("connect", () => {
+        showToast("success", "You have connected successfully");
       });
-
+      console.log(newSocket);
       setSocket(newSocket);
     }
   };
+
   useEffect(() => {
     setupSocket();
     //eslint-disable-next-line
   }, []);
+
+  // if (!socket) {
+  //   return <div>Loading...</div>;
+  // }
 
   return (
     <div>
       <BrowserRouter>
         <NavBar />
         <Routes>
-          <Route path="/" Component={<IndexPage />} />
+          <Route path="/" element={<IndexPage />} exact />
           <Route
             path="/login"
-            Component={() => <LoginPage setupSocket={setupSocket} />}
+            element={<LoginPage setupSocket={setupSocket} exact />}
           />
-          <Route path="/register" Component={<RegisterPage />} />
+          <Route path="/register" element={<RegisterPage />} exact />
           <Route
             path="/chat"
-            Component={() => <ChatroomPage socket={socket} />}
+            element={
+              <ChatroomPage socket={socket} setupSocket={setupSocket} exact />
+            }
           />
-          <Route path="/home" Component={<Homepage />} />
+          <Route path="/home" element={<Homepage />} exact />
           <Route
-            path="/groupchats/:id"
-            Component={() => <DirectMessage socket={socket} />}
+            path="/groupchats/:chatId"
+            element={
+              <DirectMessage socket={socket} setupSocket={setupSocket} exact />
+            }
           />
         </Routes>
       </BrowserRouter>
