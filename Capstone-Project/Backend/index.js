@@ -77,6 +77,8 @@ io.use(async (socket, next) => {
   }
 });
 
+const privateChatrooms = new Map();
+
 io.on("connection", (socket) => {
   console.log("Connected: " + socket.userId);
 
@@ -85,13 +87,23 @@ io.on("connection", (socket) => {
   });
 
   socket.on("joinRoom", ({ chatId }) => {
-    socket.join(chatId);
-    console.log("A user has joined the chat: " + chatId);
+    if (privateChatrooms.has(chatId)) {
+      socket.join(chatId);
+      console.log(`Private chat with: ${chatId} has started.`);
+    } else {
+      socket.join(chatId);
+      console.log(`${chatId} has joined the groupchat`);
+    }
   });
 
   socket.on("leaveRoom", ({ chatId }) => {
-    socket.leave(chatId);
-    console.log("A user has left the chat: " + chatId);
+    if (privateChatrooms.has(chatId)) {
+      socket.leave(chatId);
+      console.log(`Private chat with: ${chatId} has ended`);
+    } else {
+      socket.leave(chatId);
+      console.log(`${chatId} has left the groupchat`);
+    }
   });
 
   socket.on("chatroomMessage", async ({ chatId, message }) => {
@@ -110,5 +122,11 @@ io.on("connection", (socket) => {
 
       await newMessage.save();
     }
+  });
+
+  socket.on("createPrivateChatRoom", async ({ userId1, userId2 }) => {
+    const chatId = generatePrivateChatRoomId(chatId, [userId1, userId2]);
+
+    socket.emit("privateChatRoomCreated", { chatId });
   });
 });
