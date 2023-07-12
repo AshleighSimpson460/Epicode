@@ -9,8 +9,7 @@ import ChatroomPage from "./Components/Chatroom/ChatroomPage.tsx";
 import IndexPage from "./Components/UserPage/indexPage.tsx";
 import Homepage from "./Components/Homepage.tsx";
 import DirectMessage from "./Components/Chatroom/DirectMessage.tsx";
-import { showError, showToast } from "./Components/Toaster.js";
-// import DirectMessageWithErrorBoundary from "./Components/Chatroom/DirectWithEB.jsx";
+import { showToast } from "./Components/Toaster.js";
 
 function App() {
   const [socket, setSocket] = useState(null);
@@ -45,9 +44,9 @@ function App() {
     //eslint-disable-next-line
   }, []);
 
-  // if (!socket) {
-  //   return <div>Loading...</div>;
-  // }
+  if (!socket) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
