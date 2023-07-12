@@ -15,7 +15,7 @@ const ChatroomPage = () => {
   const [newChatroomName, setNewChatroomName] = useState("");
 
   const getChatrooms = () => {
-    fetch("http://localhost:3002/chat", {
+    fetch("http://localhost:3002/groupchats", {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("C_Token"),
       },
