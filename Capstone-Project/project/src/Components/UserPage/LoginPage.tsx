@@ -8,15 +8,19 @@ const LoginUser = (props: { setupSocket: () => void }) => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleEmailChange = (event) => {
+  const handleEmailChange = (event: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
     setEmail(event.target.value);
   };
 
-  const handlePasswordChange = (event) => {
+  const handlePasswordChange = (event: {
+    target: { value: React.SetStateAction<string> };
+  }) => {
     setPassword(event.target.value);
   };
 
-  const handleFormSubmit = (event) => {
+  const handleFormSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
 
     const formData = {
@@ -32,16 +36,16 @@ const LoginUser = (props: { setupSocket: () => void }) => {
       body: JSON.stringify(formData),
       mode: "cors",
     })
-      .then((res) => {
+      .then(async (res) => {
         if (!res.ok) {
-          return res.json().then((data) => {
-            throw new Error(data.message);
-          });
+          const data = await res.json();
+          throw new Error(data.message);
         } else {
           return res.json();
         }
       })
       .then((res) => {
+        console.log(res.token);
         showToast("success", "Successfully logged In");
         localStorage.setItem("C_Token", res.token);
         navigate("/chat");
