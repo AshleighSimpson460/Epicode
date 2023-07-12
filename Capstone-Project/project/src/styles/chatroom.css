@@ -11,7 +11,7 @@
     width: 40vw;
     height: 80vh;
     margin: auto;
-    border: 1px solid #eee;
+    border: 1px solid #000000;
     position: relative;
 }
 
@@ -34,7 +34,11 @@
     display: grid;
     grid-template-columns: 1fr 72px;
     grid-gap: 1rem;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #000000;
+}
+
+.chatroomActions input {
+    width: 80%;
 }
 
 .chatroomActions button {
