@@ -8,7 +8,7 @@ import NavBar from "./Components/NavBar.tsx";
 import ChatroomPage from "./Components/Chatroom/ChatroomPage.tsx";
 import IndexPage from "./Components/UserPage/indexPage.tsx";
 import Homepage from "./Components/Homepage.tsx";
-import DirectMessage from "./Components/Chatroom/DirectMessage.tsx";
+import GroupMessage from "./Components/Chatroom/GroupMessage.js";
 import { showToast } from "./Components/Toaster.js";
 
 function App() {
@@ -69,7 +69,7 @@ function App() {
           <Route
             path="/groupchats/:chatId"
             element={
-              <DirectMessage socket={socket} setupSocket={setupSocket} exact />
+              <GroupMessage socket={socket} setupSocket={setupSocket} exact />
             }
           />
         </Routes>
