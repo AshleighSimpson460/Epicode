@@ -13,6 +13,7 @@ import { router as messageRouter } from "./Routes/Messages.js";
 
 import { Messages } from "./Model/Message.js";
 import { User } from "./Model/User.js";
+import { PrivateMessages } from "./Model/PrivateMessages.js";
 
 dotenv.config();
 
@@ -126,6 +127,13 @@ io.on("connection", (socket) => {
 
   socket.on("createPrivateChatRoom", async ({ userId1, userId2 }) => {
     const chatId = generatePrivateChatRoomId(chatId, [userId1, userId2]);
+
+    const privateChat = new PrivateMessages({
+      chatId,
+      userIds: [userId1, userId2],
+    });
+
+    await privateChat.save();
 
     socket.emit("privateChatRoomCreated", { chatId });
   });
