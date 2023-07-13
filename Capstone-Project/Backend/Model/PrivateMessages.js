@@ -13,10 +13,6 @@ const privateMessagesSchema = new mongoose.Schema({
       required: true,
     },
   ],
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
 });
 
 export const PrivateChat = mongoose.model("PrivateChat", privateMessagesSchema);
