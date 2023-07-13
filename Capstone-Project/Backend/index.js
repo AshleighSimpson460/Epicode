@@ -125,8 +125,8 @@ io.on("connection", (socket) => {
     }
   });
 
-  socket.on("createPrivateChatRoom", async ({ userId1, userId2 }) => {
-    const chatId = generatePrivateChatRoomId(chatId, [userId1, userId2]);
+  socket.on("startPrivateMessages", async ({ userId1, userId2 }) => {
+    const chatId = generatePrivateMessagesId(userId1, userId2);
 
     const privateChat = new PrivateMessages({
       chatId,
@@ -135,6 +135,7 @@ io.on("connection", (socket) => {
 
     await privateChat.save();
 
-    socket.emit("privateChatRoomCreated", { chatId });
+    socket.to(userId1).emit("privateChatRoomCreated", { chatId });
+    socket.to(userId2).emit("privateChatRoomCreated", { chatId });
   });
 });
