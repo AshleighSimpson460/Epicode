@@ -9,6 +9,14 @@ export const router = express.Router();
 
 router.use(bodyParser.json({ type: "*/*" }));
 
+router.get("/", (req, res) => {
+  console.log(`request to ${req.method} users has been acknowledged`);
+  res.setHeader("Content-Type", "application/json");
+  User.find({}).then((body) => {
+    res.send(JSON.stringify(body));
+  });
+});
+
 router.post(
   "/login",
   catchErrors(async (req, res) => {
@@ -21,7 +29,14 @@ router.post(
 
       if (!user) throw "Invalid email or password";
 
-      const token = jwt.sign({ id: user.id }, process.env.SECRET);
+      const tokenPayload = { id: user.id };
+
+      if (user.name) {
+        tokenPayload.name = user.name;
+      }
+
+      const token = jwt.sign(tokenPayload, process.env.SECRET);
+
       res.status(200).json({
         message: "User logged in successfully!",
         token: token,
@@ -40,11 +55,9 @@ router.post(
     const { name, email, password } = req.body;
 
     if (!name || name.length < 3) {
-      return res
-        .status(400)
-        .json({
-          message: "Name must be provided and longer than 3 characters.",
-        });
+      return res.status(400).json({
+        message: "Name must be provided and longer than 3 characters.",
+      });
     }
 
     const emailReg = /@/;
