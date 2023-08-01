@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Socket } from "socket.io-client";
+import { generatePrivateId } from "../utils/generatePrivateId.js";
 
-interface DirectMessageProps {
+interface GroupMessageProps {
   socket: Socket;
+  setupSocket: () => void;
+  currentUser: { id: string; name: string } | null; // Update the type here
 }
 
 interface Message {
@@ -13,11 +16,25 @@ interface Message {
   timestamp: string;
 }
 
-const GroupMessage = ({ socket }: DirectMessageProps) => {
+const GroupMessage = ({
+  socket,
+  setupSocket,
+  currentUser,
+}: GroupMessageProps) => {
   const { chatId } = useParams<{ chatId: string }>();
   const [messages, setMessages] = useState<Message[]>([]);
-  const [userId, setUserId] = useState("");
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
+
+  const startPrivateMessage = (userId: string) => {
+    const privateChatId = generatePrivateId(currentUser?.id, userId); // Access the id property with optional chaining
+    const participants = [currentUser?.id, userId]; // Access the id property with optional chaining
+    socket.emit("startPrivateMessages", {
+      chatId: privateChatId,
+      participants,
+    });
+    navigate(`/inbox/${privateChatId}`);
+  };
 
   const sendMessage = () => {
     if (socket && message && chatId) {
@@ -31,19 +48,15 @@ const GroupMessage = ({ socket }: DirectMessageProps) => {
   };
 
   useEffect(() => {
-    const token = localStorage.getItem("C_Token");
-    if (token) {
-      const payload = JSON.parse(atob(token.split(".")[1]));
-      setUserId(payload.id);
-    }
-    console.log(socket);
+    console.log("currentUser:", currentUser);
+
     if (socket) {
-      socket.on("newMessage", ({ message, name }: Message | any) => {
+      socket.on("newMessage", ({ message, name, userId }: Message | any) => {
         const timestamp = new Date().toLocaleTimeString([], {
           hour: "2-digit",
           minute: "2-digit",
         });
-        const newMessage: Message = { message, name, userId: "", timestamp };
+        const newMessage: Message = { message, name, userId, timestamp };
         const newMessages = [...messages, newMessage];
         setMessages(newMessages);
       });
@@ -53,7 +66,7 @@ const GroupMessage = ({ socket }: DirectMessageProps) => {
         socket.off("newMessage");
       }
     };
-  }, [messages, socket]);
+  }, [currentUser, messages, socket]);
 
   useEffect(() => {
     console.log(socket);
@@ -77,18 +90,31 @@ const GroupMessage = ({ socket }: DirectMessageProps) => {
       <div className="chatroomSection">
         <div className="cardHeader">
           <div className="chatroomContent">
-            {messages.map((messageObj, index) => (
-              <div key={index} className="message">
-                <span
-                  className={
-                    userId === messageObj.userId ? "ownMessage" : "otherMessage"
-                  }
-                >
-                  {messageObj.name} ({messageObj.timestamp})
-                </span>{" "}
-                {messageObj.message}
-              </div>
-            ))}
+            {currentUser && currentUser.id ? (
+              messages.map((messageObj, index) => (
+                <div key={index} className="message">
+                  <span
+                    className={
+                      currentUser.id === messageObj.userId
+                        ? "ownMessage"
+                        : "otherMessage"
+                    }
+                  >
+                    {/* Make the user's name clickable */}
+                    <span
+                      style={{ cursor: "pointer" }}
+                      onClick={() => startPrivateMessage(messageObj.userId)}
+                    >
+                      {messageObj.name}
+                    </span>{" "}
+                    ({messageObj.timestamp})
+                  </span>{" "}
+                  {messageObj.message}
+                </div>
+              ))
+            ) : (
+              <div>Loading...</div>
+            )}
           </div>
           <div className="chatroomActions">
             <div>
