@@ -15,4 +15,7 @@ const privateMessagesSchema = new mongoose.Schema({
   ],
 });
 
-export const PrivateChat = mongoose.model("PrivateChat", privateMessagesSchema);
+export const PrivateMessage = mongoose.model(
+  "PrivateMessage",
+  privateMessagesSchema
+);
