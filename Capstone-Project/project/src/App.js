@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import io, { Socket } from "socket.io-client";
+import React, { useEffect, useState, useCallback } from "react";
+import io from "socket.io-client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
@@ -15,35 +15,27 @@ import PrivateMessages from "./Components/PrivateMessage/PrivateMessage.tsx";
 
 function App() {
   const [socket, setSocket] = useState(null);
-  const [currentUser, setCurrentUser] = useState({
-    id: "",
-    name: "",
-  });
-
-  const fetchCurrentUser = async () => {
-    try {
-      const fetchUser = await fetch("http://localhost:3002/user");
-      const currentUserData = await fetchUser.json();
-
-      const id = currentUserData._id;
-      const name = currentUserData.name || "Unknown";
-
-      setCurrentUser({
-        id: id,
-        name: name,
-      });
-    } catch (error) {
-      console.error("Error fetching current user:", error);
-    }
-  };
+  const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
+    const fetchCurrentUser = async () => {
+      try {
+        const token = localStorage.getItem("C_Token");
+        if (token) {
+          const payload = jwt_decode(token);
+          setCurrentUser(payload);
+        }
+      } catch (error) {
+        console.error("Error fetching current user:", error);
+      }
+    };
+
     fetchCurrentUser();
   }, []);
 
-  const setupSocket = () => {
+  const setupSocket = useCallback(() => {
     const token = localStorage.getItem("C_Token");
-    console.log("token:" + token);
+    // console.log("token:", token);
     if (token && !socket) {
       const newSocket = io("http://localhost:3002", {
         auth: {
@@ -52,13 +44,6 @@ function App() {
         reconnection: false,
       });
 
-      const decodedToken = jwt_decode(token, { ignoreExpiration: true });
-      const user = { id: decodedToken.id, name: decodedToken.name };
-      console.log("Decoded User:", user);
-
-      setCurrentUser(user);
-
-      console.log(newSocket);
       newSocket.on("disconnect", () => {
         setSocket(null);
         setTimeout(setupSocket, 6000);
@@ -68,15 +53,14 @@ function App() {
       newSocket.on("connect", () => {
         showToast("success", "You have connected successfully");
       });
-      console.log(newSocket);
+
       setSocket(newSocket);
     }
-  };
+  }, [socket]);
 
   useEffect(() => {
     setupSocket();
-    //eslint-disable-next-line
-  }, []);
+  }, [setupSocket]);
 
   return (
     <div>
@@ -99,11 +83,16 @@ function App() {
           <Route
             path="/groupchats/:chatId"
             element={
-              <GroupMessage socket={socket} setupSocket={setupSocket} exact />
+              <GroupMessage
+                socket={socket}
+                setupSocket={setupSocket}
+                currentUser={currentUser}
+                exact
+              />
             }
           />
           <Route
-            path="/inbox"
+            path="/inbox/:userId"
             element={
               <PrivateMessages
                 socket={socket}
