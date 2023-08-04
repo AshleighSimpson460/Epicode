@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Socket } from "socket.io-client";
 import { generatePrivateId } from "../utils/generatePrivateId.js";
@@ -6,7 +6,7 @@ import { generatePrivateId } from "../utils/generatePrivateId.js";
 interface GroupMessageProps {
   socket: Socket;
   setupSocket: () => void;
-  currentUser: { id: string; name: string } | null; // Update the type here
+  currentUser: { id: string; name: string };
 }
 
 interface Message {
@@ -24,19 +24,63 @@ const GroupMessage = ({
   const { chatId } = useParams<{ chatId: string }>();
   const [messages, setMessages] = useState<Message[]>([]);
   const [message, setMessage] = useState("");
-  const navigate = useNavigate();
+  const [localCurrentUser, setLocalCurrentUser] = useState<{
+    id: string;
+    name: string;
+  }>({ id: "", name: "" });
+  const [clickedUserId, setClickedUserId] = useState<string | null>(null);
 
-  const startPrivateMessage = (userId: string) => {
-    const privateChatId = generatePrivateId(currentUser?.id, userId); // Access the id property with optional chaining
-    const participants = [currentUser?.id, userId]; // Access the id property with optional chaining
-    socket.emit("startPrivateMessages", {
-      chatId: privateChatId,
-      participants,
-    });
-    navigate(`/inbox/${privateChatId}`);
+  const handleUserNameClick = (userId: string) => {
+    setClickedUserId(userId);
   };
 
-  const sendMessage = () => {
+  const navigate = useNavigate();
+
+  const prevClickedUserId = useRef<string | null>(null);
+
+  const startPrivateMessage = useCallback(() => {
+    console.log("currentuser.id:", currentUser.id);
+    console.log("userId:", clickedUserId);
+    const token = localStorage.getItem("C_Token");
+
+    if (currentUser && clickedUserId) {
+      const participants = [currentUser.id, clickedUserId];
+      participants.sort();
+
+      const chatId = generatePrivateId(participants[0], participants[1]);
+
+      socket.emit("startPrivateMessages", {
+        chatId: chatId,
+        participants: participants,
+      });
+
+      fetch(`http://localhost:3002/inbox/${chatId}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ participants }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          const { chatId } = data;
+          navigate(`/inbox/${chatId}`);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [currentUser, clickedUserId, socket, navigate]);
+
+  useEffect(() => {
+    if (clickedUserId && prevClickedUserId.current !== clickedUserId) {
+      startPrivateMessage();
+      prevClickedUserId.current = clickedUserId;
+    }
+  }, [clickedUserId, startPrivateMessage]);
+
+  const sendMessage = useCallback(() => {
     if (socket && message && chatId) {
       socket.emit("chatroomMessage", {
         chatId,
@@ -45,10 +89,18 @@ const GroupMessage = ({
       console.log(message);
       setMessage("");
     }
-  };
+  }, [socket, message, chatId]);
 
   useEffect(() => {
     console.log("currentUser:", currentUser);
+
+    const token = localStorage.getItem("C_Token");
+    if (token) {
+      const payload = JSON.parse(atob(token.split(".")[1]));
+      setLocalCurrentUser({ id: payload.id, name: payload.name });
+    }
+
+    console.log(socket);
 
     if (socket) {
       socket.on("newMessage", ({ message, name, userId }: Message | any) => {
@@ -61,6 +113,7 @@ const GroupMessage = ({
         setMessages(newMessages);
       });
     }
+
     return () => {
       if (socket) {
         socket.off("newMessage");
@@ -90,20 +143,20 @@ const GroupMessage = ({
       <div className="chatroomSection">
         <div className="cardHeader">
           <div className="chatroomContent">
-            {currentUser && currentUser.id ? (
-              messages.map((messageObj, index) => (
+            {messages.map((messageObj, index) => {
+              console.log("userId:", messageObj.userId);
+              return (
                 <div key={index} className="message">
                   <span
                     className={
-                      currentUser.id === messageObj.userId
+                      localCurrentUser.id === messageObj.userId
                         ? "ownMessage"
                         : "otherMessage"
                     }
                   >
-                    {/* Make the user's name clickable */}
                     <span
                       style={{ cursor: "pointer" }}
-                      onClick={() => startPrivateMessage(messageObj.userId)}
+                      onClick={() => handleUserNameClick(messageObj.userId)}
                     >
                       {messageObj.name}
                     </span>{" "}
@@ -111,10 +164,8 @@ const GroupMessage = ({
                   </span>{" "}
                   {messageObj.message}
                 </div>
-              ))
-            ) : (
-              <div>Loading...</div>
-            )}
+              );
+            })}
           </div>
           <div className="chatroomActions">
             <div>

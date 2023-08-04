@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Socket } from "socket.io-client";
-import { generatePrivateId } from "../utils/generatePrivateId.js";
 import "./privateroom.css";
 
 interface PrivateMessagesProps {
@@ -13,9 +12,10 @@ interface Message {
   userId: string;
   name: string;
   message: string;
+  timestamp: string;
 }
 
-const PrivateMessages = ({ socket, currentUser }: PrivateMessagesProps) => {
+const PrivateMessages = ({ socket }: PrivateMessagesProps) => {
   const { userId } = useParams<{ userId: string }>();
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
@@ -26,31 +26,29 @@ const PrivateMessages = ({ socket, currentUser }: PrivateMessagesProps) => {
       navigate(`/inbox/${chatId}`);
     });
 
-    socket.on("newMessage", ({ message, name, userId }: Message) => {
-      const newMessage: Message = { message, name, userId };
+    socket.on("newMessage", ({ message, name, userId, timestamp }: Message) => {
+      const newMessage: Message = { message, name, userId, timestamp };
       setMessages((prevMessages) => [...prevMessages, newMessage]);
+    });
+
+    socket.emit("joinRoom", {
+      chatId: userId,
     });
 
     return () => {
       socket.off("privateMessageCreated");
       socket.off("newMessage");
     };
-  }, [socket, navigate]);
-
-  const startPrivateMessages = () => {
-    const chatId = generatePrivateId(currentUser.id, userId);
-    socket.emit("startPrivateMessages", {
-      chatId,
-      participants: [currentUser.id, userId],
-    });
-  };
+  }, [socket, navigate, userId]);
 
   const sendMessage = () => {
-    if (message.trim().length > 0) {
+    if (message.trim().length > 0 && userId) {
       socket.emit("privateMessage", {
+        // Use "privateMessage" event name
         chatId: userId,
         message,
       });
+      console.log(message);
       setMessage("");
     }
   };

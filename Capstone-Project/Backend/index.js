@@ -10,10 +10,12 @@ import { router as restaurantRouter } from "./Routes/router.js";
 import { router as userRouter } from "./Routes/user.js";
 import { router as chatroomRouter } from "./Routes/chatroom.js";
 import { router as messageRouter } from "./Routes/Messages.js";
+import { router as privateRouter } from "./Routes/privateMessages.js";
 
 import { Messages } from "./Model/Message.js";
 import { User } from "./Model/User.js";
-import { PrivateMessages } from "./Model/PrivateMessages.js";
+import { PrivateMessage } from "./Model/PrivateMessages.js";
+import { PrivateChatMessage } from "./Model/PrivateChatMessage.js";
 
 dotenv.config();
 
@@ -25,6 +27,7 @@ const io = new Server(server, {
     methods: ["GET", "POST"],
     credentials: true,
   },
+  maxEvents: 5,
 });
 
 app.use(
@@ -40,6 +43,7 @@ app.use("/restaurantPosts", restaurantRouter);
 app.use("/user", userRouter);
 app.use("/groupchats", chatroomRouter);
 app.use("/groupchats/:chatId", messageRouter);
+app.use("/inbox", privateRouter);
 
 mongoose
   .connect(process.env.MongoConnect)
@@ -65,12 +69,11 @@ app.all("*", (req, res) => {
 io.use(async (socket, next) => {
   try {
     const token = socket.handshake.auth.token;
-    console.log("token:" + token);
     if (!token) {
       throw new Error("no token provided");
     }
     const payload = await jwt.verify(token, process.env.SECRET);
-    console.log("payload: " + payload);
+    console.log("payload: " + JSON.stringify(payload));
     socket.userId = payload.id;
     next();
   } catch (err) {
@@ -78,7 +81,7 @@ io.use(async (socket, next) => {
   }
 });
 
-const privateChatrooms = new Map();
+const privateMessages = new Map();
 
 io.on("connection", (socket) => {
   console.log("Connected: " + socket.userId);
@@ -88,7 +91,7 @@ io.on("connection", (socket) => {
   });
 
   socket.on("joinRoom", ({ chatId }) => {
-    if (privateChatrooms.has(chatId)) {
+    if (privateMessages.has(chatId)) {
       socket.join(chatId);
       console.log(`Private chat with: ${chatId} has started.`);
     } else {
@@ -98,7 +101,7 @@ io.on("connection", (socket) => {
   });
 
   socket.on("leaveRoom", ({ chatId }) => {
-    if (privateChatrooms.has(chatId)) {
+    if (privateMessages.has(chatId)) {
       socket.leave(chatId);
       console.log(`Private chat with: ${chatId} has ended`);
     } else {
@@ -125,17 +128,32 @@ io.on("connection", (socket) => {
     }
   });
 
-  socket.on("startPrivateMessages", async ({ userId1, userId2 }) => {
-    const chatId = generatePrivateMessagesId(userId1, userId2);
+  socket.on("privateMessage", async ({ chatId, message }) => {
+    try {
+      const user = await User.findOne({ _id: socket.userId });
 
-    const privateChat = new PrivateMessages({
-      chatId,
-      userIds: [userId1, userId2],
-    });
+      if (user) {
+        const privateChat = await PrivateMessage.findOne({ chatId });
+        if (!privateChat) {
+          return; // Return early if the private chat doesn't exist
+        }
 
-    await privateChat.save();
+        const newMessage = new PrivateChatMessage({
+          chatId,
+          userId: socket.userId,
+          message,
+        });
 
-    socket.to(userId1).emit("privateChatRoomCreated", { chatId });
-    socket.to(userId2).emit("privateChatRoomCreated", { chatId });
+        await newMessage.save(); // Save the new private chat message to the database
+
+        // Emit the new message to all connected sockets in the private chat room
+        io.to(chatId).emit("newMessage", {
+          ...newMessage.toObject(), // Convert Mongoose document to plain object
+          name: user.name, // Include the name of the user in the emitted message
+        });
+      }
+    } catch (err) {
+      console.log(err);
+    }
   });
 });
