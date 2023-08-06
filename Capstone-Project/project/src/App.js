@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import io from "socket.io-client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import jwt_decode from "jwt-decode";
+import { showError, showToast } from "./Components/Toaster.js";
 
 import LoginPage from "./Components/UserPage/LoginPage.tsx";
 import RegisterPage from "./Components/UserPage/RegisterPage.tsx";
@@ -10,8 +11,8 @@ import ChatroomPage from "./Components/Chatroom/ChatroomPage.tsx";
 import IndexPage from "./Components/UserPage/indexPage.tsx";
 import Homepage from "./Components/Homepage.tsx";
 import GroupMessage from "./Components/Chatroom/GroupMessage.tsx";
-import { showError, showToast } from "./Components/Toaster.js";
 import PrivateMessages from "./Components/PrivateMessage/PrivateMessage.tsx";
+import Restaurant from "./Components/RestaurantPage/Restaurant.tsx";
 
 function App() {
   const [socket, setSocket] = useState(null);
@@ -101,6 +102,7 @@ function App() {
               />
             }
           />
+          <Route path="/restaurants" element=<Restaurant /> />
         </Routes>
       </BrowserRouter>
     </div>
