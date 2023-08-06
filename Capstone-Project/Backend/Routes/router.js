@@ -12,6 +12,18 @@ const loggingMiddleWare = (req, _, next) => {
 router.use(bodyParser.json({ type: "*/*" }));
 router.use(loggingMiddleWare);
 
+router.get("/", (req, res) => {
+  restaurant
+    .find()
+    .then((restaraunts) => {
+      res.json(restaraunts);
+    })
+    .catch((error) => {
+      console.log("An error has occured", error);
+      res.status(500).send("An error occurred while fetching restaurants.");
+    });
+});
+
 router.post("/", (req, res) => {
   const newPost = new restaurant(req.body);
 
