@@ -39,7 +39,7 @@ app.use(
 
 app.use(express.json());
 
-app.use("/restaurantPosts", restaurantRouter);
+app.use("/restaurants", restaurantRouter);
 app.use("/user", userRouter);
 app.use("/groupchats", chatroomRouter);
 app.use("/groupchats/:chatId", messageRouter);
