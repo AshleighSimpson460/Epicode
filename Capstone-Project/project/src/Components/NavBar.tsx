@@ -1,4 +1,4 @@
-import { Button, Flex, HStack, Text } from "@chakra-ui/react";
+import { Flex, HStack, Text } from "@chakra-ui/react";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ColorModeSwitch from "./ColorModeSwitch.jsx";
@@ -16,6 +16,15 @@ const NavBar = () => {
     <div>
       <HStack justifyContent="space-between" padding="10px">
         <Text>FinestFind</Text>
+        <Text>
+          <Link to="/chat">Public chat</Link>
+        </Text>
+        <Text>
+          <Link to="/restaurants">Restaurants</Link>
+        </Text>
+        <Text>
+          <Link to="/inbox">Inbox</Link>
+        </Text>
         <Flex alignItems="center" padding="10px">
           <ColorModeSwitch />
           {isLoggedIn ? (
