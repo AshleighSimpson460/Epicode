@@ -1,7 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { showError, showToast } from "../Toaster.js";
-import { Button, Card, CardBody, CardHeader, Flex } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Input,
+  Text,
+  VStack,
+  useColorMode,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import CreateChatroom from "../Fetch/api.tsx";
 
@@ -13,6 +22,12 @@ interface Chatroom {
 const ChatroomPage = () => {
   const [chatrooms, setChatrooms] = useState<Chatroom[]>([]);
   const [newChatroomName, setNewChatroomName] = useState("");
+
+  const { colorMode } = useColorMode();
+  const cardBgColor = useColorModeValue("white", "gray.800");
+  const cardHeaderBgColor = useColorModeValue("gray.100", "gray.700");
+  const textColor = useColorModeValue("gray.700", "gray.300");
+  const buttonBgColor = useColorModeValue("blue.500", "blue.300");
 
   const getChatrooms = () => {
     fetch("http://localhost:3002/groupchats", {
@@ -59,48 +74,52 @@ const ChatroomPage = () => {
   };
 
   return (
-    <div>
-      <Flex h="70vh" alignItems="center" justifyContent="center">
-        <Flex flexDirection="column" p={12} borderRadius={10}>
-          <Card>
-            <CardHeader>Customise Group Name</CardHeader>
-            <CardBody>
-              <Flex justifyContent="center" flexDirection="column" pb={6}>
-                <div className="inputGroup">
-                  <input
-                    type="text"
-                    name="chatroomName"
-                    id="chatroomName"
-                    placeholder="just chatting"
-                    value={newChatroomName}
-                    onChange={(e) => setNewChatroomName(e.target.value)}
-                  />
-                </div>
+    <Box h="70vh" display="flex" alignItems="center" justifyContent="center">
+      <VStack spacing={6} p={6} borderRadius={10} bg={cardBgColor}>
+        <Box bg={cardHeaderBgColor} p={4} borderRadius={10}>
+          <Text fontSize="lg" fontWeight="bold">
+            Customise Group Name
+          </Text>
+        </Box>
+        <Box>
+          <Input
+            type="text"
+            name="chatroomName"
+            placeholder="Create Chat Name"
+            value={newChatroomName}
+            onChange={(e) => setNewChatroomName(e.target.value)}
+          />
+        </Box>
+        <Button onClick={handleCreateChatroom} bg={buttonBgColor} color="white">
+          Create Public Groupchat
+        </Button>
+        <Box w="100%">
+          {chatrooms.length > 0 ? (
+            chatrooms.map((chatroom) => (
+              <Flex
+                key={chatroom._id}
+                justifyContent="space-between"
+                alignItems="center"
+                bg={cardBgColor}
+                p={4}
+                borderRadius={8}
+                boxShadow="md"
+                mt={4}
+              >
+                <Text color={textColor}>{chatroom.name}</Text>
+                <Link to={"/groupchats/" + chatroom._id}>
+                  <Button colorScheme={colorMode === "light" ? "blue" : "teal"}>
+                    Join
+                  </Button>
+                </Link>
               </Flex>
-              <Button onClick={handleCreateChatroom}>
-                Create Public Group
-              </Button>
-              <Flex justifyContent="space-between">
-                <div className="chatrooms">
-                  {chatrooms.length > 0 ? (
-                    chatrooms.map((chatroom) => (
-                      <div key={chatroom._id} className="chatroom">
-                        <div>{chatroom.name}</div>
-                        <Link to={"/groupchats/" + chatroom._id}>
-                          <div className="join">Join</div>
-                        </Link>
-                      </div>
-                    ))
-                  ) : (
-                    <div key="no-chatrooms">No chatrooms available</div>
-                  )}
-                </div>
-              </Flex>
-            </CardBody>
-          </Card>
-        </Flex>
-      </Flex>
-    </div>
+            ))
+          ) : (
+            <Text>No chatrooms available</Text>
+          )}
+        </Box>
+      </VStack>
+    </Box>
   );
 };
 
