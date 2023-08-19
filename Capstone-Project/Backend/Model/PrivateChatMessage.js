@@ -5,11 +5,13 @@ const privateChatMessageSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-    required: true,
-  },
+  userId: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+  ],
   message: {
     type: String,
     required: true,
