@@ -15,11 +15,12 @@ interface Message {
   timestamp: string;
 }
 
-const PrivateMessages = ({ socket }: PrivateMessagesProps) => {
+const PrivateMessages = ({ socket, currentUser }: PrivateMessagesProps) => {
   const { userId } = useParams<{ userId: string }>();
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
+  const [otherParticipantName, setOtherParticipantName] = useState<string>("");
 
   useEffect(() => {
     socket.on("privateMessageCreated", ({ chatId }) => {
@@ -29,6 +30,11 @@ const PrivateMessages = ({ socket }: PrivateMessagesProps) => {
     socket.on("newMessage", ({ message, name, userId, timestamp }: Message) => {
       const newMessage: Message = { message, name, userId, timestamp };
       setMessages((prevMessages) => [...prevMessages, newMessage]);
+
+      // Update the other participant's name
+      if (userId !== currentUser.id && name !== currentUser.name) {
+        setOtherParticipantName(name);
+      }
     });
 
     socket.emit("joinRoom", {
@@ -39,24 +45,25 @@ const PrivateMessages = ({ socket }: PrivateMessagesProps) => {
       socket.off("privateMessageCreated");
       socket.off("newMessage");
     };
-  }, [socket, navigate, userId]);
+  }, [socket, navigate, userId, currentUser]);
 
   const sendMessage = () => {
     if (message.trim().length > 0 && userId) {
       socket.emit("privateMessage", {
-        // Use "privateMessage" event name
         chatId: userId,
         message,
       });
       console.log(message);
       setMessage("");
+    } else {
+      console.log("Message is empty or invalid");
     }
   };
 
   return (
     <div className="private-chat-container">
       <div className="private-chat-header">
-        <h2>Private Chat with {userId}</h2>
+        <h2>Private Chat with {otherParticipantName}</h2>
       </div>
       <div className="private-chat-messages">
         {messages.map((messageObj, index) => (
