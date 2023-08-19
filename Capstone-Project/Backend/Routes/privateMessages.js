@@ -1,34 +1,41 @@
 import express from "express";
-import { PrivateMessage } from "../Model/PrivateMessages.js";
 import setCurrentUser from "../MiddleWare/setCurrentUser.js";
 import Auth from "../MiddleWare/Auth.js";
-import { generatePrivateId } from "../utils/generatePrivateId.js"; // Import the generatePrivateId function
 import mongoose from "mongoose";
+
+import { PrivateMessage } from "../Model/PrivateMessages.js";
+import { User } from "../Model/User.js";
+import { generatePrivateId } from "../utils/generatePrivateId.js"; // Import the generatePrivateId function
 import { PrivateChatMessage } from "../Model/PrivateChatMessage.js";
 
 export const router = express.Router();
 
 router.use(setCurrentUser);
 
-router.get("/", Auth, async (req, res) => {
-  const { chatId } = req.query;
+router.get("/:userId", Auth, async (req, res) => {
+  const { userId } = req.params;
 
   try {
-    const privateMessage = await PrivateMessage.findOne({ chatId }).populate({
-      path: "messages",
-      populate: {
-        path: "userId",
+    // Find all conversations where the given userId is a participant
+    const conversations = await PrivateMessage.find({
+      participants: { $in: [userId] },
+    })
+      .populate({
+        path: "participants",
         model: "User",
-        select: "name", // Select the name field of the user only
-      },
-      options: { sort: { timestamp: 1 } }, // Sort messages in ascending order based on timestamp
-    });
+        select: "name",
+      })
+      .populate({
+        path: "messages",
+        populate: {
+          path: "userId",
+          model: "User",
+          select: "name",
+        },
+        options: { sort: { timestamp: 1 } },
+      });
 
-    if (!privateMessage) {
-      return res.status(404).json({ error: "Private chat not found" });
-    }
-
-    res.json(privateMessage);
+    res.json({ conversations });
   } catch (err) {
     console.log(err);
     res.status(500).json({ error: "Server error" });
@@ -64,8 +71,12 @@ router.post("/:userId", Auth, async (req, res) => {
 
       await newPrivateChatMessage.save();
     }
+    const participantsNames = await User.find(
+      { _id: { $in: participantIds } },
+      "name"
+    );
 
-    res.json({ chatId });
+    res.json({ chatId, participantsNames });
   } catch (err) {
     console.log(err);
     res.status(500).json({ error: "Server error" });
