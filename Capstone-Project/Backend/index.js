@@ -19,6 +19,8 @@ import { PrivateChatMessage } from "./Model/PrivateChatMessage.js";
 
 dotenv.config();
 
+export { dotenv };
+
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -29,6 +31,8 @@ const io = new Server(server, {
   },
   maxEvents: 5,
 });
+
+export { app, server, io };
 
 app.use(
   cors({
