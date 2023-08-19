@@ -13,6 +13,7 @@ import Homepage from "./Components/Homepage.tsx";
 import GroupMessage from "./Components/Chatroom/GroupMessage.tsx";
 import PrivateMessages from "./Components/PrivateMessage/PrivateMessage.tsx";
 import Restaurant from "./Components/RestaurantPage/Restaurant.tsx";
+import InboxPage from "./Components/InboxPage/InboxPage.tsx";
 
 function App() {
   const [socket, setSocket] = useState(null);
@@ -102,7 +103,14 @@ function App() {
               />
             }
           />
-          <Route path="/restaurants" element=<Restaurant /> />
+          <Route
+            path="/restaurants"
+            element=<Restaurant currentUser={currentUser} />
+          />
+          <Route
+            path="/inbox"
+            element={<InboxPage currentUser={currentUser} />}
+          />
         </Routes>
       </BrowserRouter>
     </div>
