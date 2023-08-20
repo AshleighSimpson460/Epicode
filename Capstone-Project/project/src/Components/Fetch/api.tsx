@@ -1,5 +1,3 @@
-import React from "react";
-
 const CreateChatroom = (name) => {
   return fetch("http://localhost:3002/chat", {
     method: "POST",
