@@ -47,6 +47,11 @@ const NavBar = () => {
             <Button variant={"link"}>Inbox</Button>
           </Link>
         )}
+        {isLoggedIn && (
+          <Link to="/my-reservations">
+            <Button variant={"link"}>My Reservation</Button>
+          </Link>
+        )}
       </HStack>
       <Flex alignItems="center">
         <ColorModeSwitch />

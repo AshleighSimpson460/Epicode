@@ -14,6 +14,7 @@ import GroupMessage from "./Components/Chatroom/GroupMessage.tsx";
 import PrivateMessages from "./Components/PrivateMessage/PrivateMessage.tsx";
 import Restaurant from "./Components/RestaurantPage/Restaurant.tsx";
 import InboxPage from "./Components/InboxPage/InboxPage.tsx";
+import MyBooking from "./Components/BookedPage/MyBooking.tsx";
 
 function App() {
   const [socket, setSocket] = useState(null);
@@ -111,6 +112,7 @@ function App() {
             path="/inbox"
             element={<InboxPage currentUser={currentUser} />}
           />
+          <Route path="/my-reservations" element={<MyBooking />} />
         </Routes>
       </BrowserRouter>
     </div>
