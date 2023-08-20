@@ -1,6 +1,16 @@
-import { useState, useEffect } from "react";
-import { Box, Heading, Text, Wrap, WrapItem, Button } from "@chakra-ui/react";
-import ReservationForm from "./ReservationForm"; // Import the ReservationForm component
+import { useState, useEffect, ChangeEvent } from "react";
+import {
+  Box,
+  Heading,
+  Text,
+  Wrap,
+  WrapItem,
+  Button,
+  Select,
+  Stack,
+} from "@chakra-ui/react";
+import { showToast, showError } from "../Toaster.js";
+import ReservationForm from "./ReservationForm";
 
 interface Restaurant {
   _id: string;
@@ -20,6 +30,10 @@ const RestaurantPage = ({ currentUser }: PrivateMessagesProps) => {
   const [selectedRestaurant, setSelectedRestaurant] =
     useState<Restaurant | null>(null);
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [selectedCuisine, setSelectedCuisine] = useState<string | null>("");
+  const [selectedType, setSelectedType] = useState<string | null>("");
+  const [uniqueCuisines, setUniqueCuisines] = useState<string[]>([]);
+  const [uniqueTypes, setUniqueTypes] = useState<string[]>([]);
 
   const handleOpenForm = (restaurant: Restaurant) => {
     setSelectedRestaurant(restaurant);
@@ -40,15 +54,14 @@ const RestaurantPage = ({ currentUser }: PrivateMessagesProps) => {
     if (selectedRestaurant) {
       const { date, time, guests } = reservationData;
 
-      // Convert date and time to a single JavaScript Date object
       const reservationDate = new Date(date);
       const reservationTime = new Date(time);
-      console.log("formattedDate:", reservationData);
-      console.log("Time:", reservationTime);
+
+      console.log("reservationTime", reservationTime);
 
       const dataToSend = {
         restaurantName: selectedRestaurant.name,
-        date: reservationDate.toISOString(), // Send the converted date
+        date: reservationDate.toISOString(),
         time: reservationTime.toISOString(),
         guests: guests,
         participants: [currentUser.id, "64d902e241e0e7f38f90eeda"],
@@ -58,7 +71,6 @@ const RestaurantPage = ({ currentUser }: PrivateMessagesProps) => {
       console.log("Data to send:", dataToSend);
 
       try {
-        // Send reservation data to the server using fetch or axios
         const response = await fetch(
           "http://localhost:3002/restaurants/reservation",
           {
@@ -72,11 +84,10 @@ const RestaurantPage = ({ currentUser }: PrivateMessagesProps) => {
         );
 
         if (response.ok) {
-          // Reservation successful, handle accordingly (e.g., show a message or redirect)
-          console.log("Reservation successful");
+          showToast("success", "reservation booked");
           handleCloseForm();
         } else {
-          console.error("Failed to make reservation");
+          showError("error", "Failed to make reservation");
         }
       } catch (error) {
         console.error("Error making reservation:", error);
@@ -85,56 +96,115 @@ const RestaurantPage = ({ currentUser }: PrivateMessagesProps) => {
   };
 
   useEffect(() => {
-    // Fetch restaurant data from the server
     fetch("http://localhost:3002/restaurants", {
       method: "GET",
     })
       .then((res) => res.json())
-      .then((data) => setRestaurants(data))
+      .then((data: Restaurant[]) => {
+        const allCuisines = data.flatMap((restaurant) => restaurant.cuisine);
+        const uniqueCuisines = Array.from(new Set(allCuisines));
+        const allTypes = data.map((restaurant) => restaurant.type);
+        const uniqueTypes = Array.from(new Set(allTypes));
+        uniqueCuisines.sort();
+        uniqueTypes.sort();
+        setRestaurants(data);
+        setUniqueCuisines(uniqueCuisines);
+        setUniqueTypes(uniqueTypes);
+      })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
   }, []);
+
+  function handleCuisineChange(event: ChangeEvent<HTMLSelectElement>): void {
+    setSelectedCuisine(event.target.value);
+  }
+
+  function handleTypeChange(event: ChangeEvent<HTMLSelectElement>): void {
+    setSelectedType(event.target.value);
+  }
+
+  const filteredRestaurants = restaurants.filter((restaurant) => {
+    if (selectedCuisine && !restaurant.cuisine.includes(selectedCuisine)) {
+      return false;
+    }
+    if (selectedType && restaurant.type !== selectedType) {
+      return false;
+    }
+    return true;
+  });
 
   return (
     <Box p={4}>
       <Heading as="h2" mb={4}>
         List of Restaurants
       </Heading>
-      <Wrap spacing={4}>
-        {restaurants.map((restaurant) => (
+      <Box m={4} display="flex">
+        <Box marginRight={3}>
+          <Text mb={2}>Filter by Cuisine:</Text>
+          <Select
+            width={"150px"}
+            placeholder="All Cuisines"
+            value={selectedCuisine || ""}
+            onChange={handleCuisineChange}
+          >
+            {uniqueCuisines.map((cuisine) => (
+              <option key={cuisine} value={cuisine}>
+                {cuisine}
+              </option>
+            ))}
+          </Select>
+        </Box>
+        <Box>
+          <Text mb={2}>Filter by Type:</Text>
+          <Select
+            width={"150px"}
+            placeholder="All Types"
+            value={selectedType || ""}
+            onChange={handleTypeChange}
+          >
+            {uniqueTypes.map((type) => (
+              <option key={type} value={type}>
+                {type}
+              </option>
+            ))}
+          </Select>
+        </Box>
+      </Box>
+      <Wrap justify="center" spacing={4}>
+        {filteredRestaurants.map((restaurant) => (
           <WrapItem key={restaurant._id}>
             <Box
-              maxW="md"
+              width="250px"
               borderWidth="1px"
               borderRadius="lg"
               overflow="hidden"
               boxShadow="md"
-              bgImage={`url(${restaurant.imgURL})`}
-              bgSize="cover"
-              bgPosition="center center"
-              bgRepeat="no-repeat"
+              position="relative"
             >
-              <Box p="4" bg="rgba(255, 255, 255, 0.12)">
-                <Heading as="h3" size="md" mb={2}>
+              <Box
+                h="180px"
+                bgImage={`url(${restaurant.imgURL})`}
+                bgSize="cover"
+                bgPosition="center center"
+                bgRepeat="no-repeat"
+              />
+              <Stack p="4" spacing={2}>
+                <Heading as="h3" size="md">
                   {restaurant.name}
                 </Heading>
                 <Text fontSize="sm" mb={2}>
                   Cuisine: {restaurant.cuisine.join(", ")}
                 </Text>
                 <Text fontSize="sm">Type: {restaurant.type}</Text>
-
-                {/* Reserve Button */}
                 <Button onClick={() => handleOpenForm(restaurant)}>
                   Reserve
                 </Button>
-              </Box>
+              </Stack>
             </Box>
           </WrapItem>
         ))}
       </Wrap>
-
-      {/* Reservation Form Popout */}
       <ReservationForm
         isOpen={isFormOpen}
         onClose={handleCloseForm}
