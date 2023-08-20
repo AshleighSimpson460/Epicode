@@ -2,22 +2,14 @@ import express from "express";
 import setCurrentUser from "../MiddleWare/setCurrentUser.js";
 import bodyParser from "body-parser";
 import Auth from "../MiddleWare/Auth.js";
-import mongoose from "mongoose";
 
 import { restaurant } from "../Model/Restaurant.js";
 import { Reservation } from "../Model/Reservation.js";
-import { PrivateChatMessage } from "../Model/PrivateChatMessage.js";
-import { io, dotenv } from "../index.js";
-import { generatePrivateId } from "../utils/generatePrivateId.js";
-import { PrivateMessage } from "../Model/PrivateMessages.js";
 import { User } from "../Model/User.js";
 
 export const router = express.Router();
 
 router.use(setCurrentUser);
-
-// const automatedMessageToken = process.env.AUTOMATED_MESSAGE_TOKEN;
-const automatedAccountId = "64d902e241e0e7f38f90eeda";
 
 const loggingMiddleWare = (req, _, next) => {
   console.log(`${req.method} request to ${req.path} has arrived`);
@@ -30,13 +22,27 @@ router.use(loggingMiddleWare);
 router.get("/", (req, res) => {
   restaurant
     .find()
-    .then((restaraunts) => {
-      res.json(restaraunts);
+    .then((restaurants) => {
+      res.json(restaurants);
     })
     .catch((error) => {
-      console.log("An error has occured", error);
+      console.log("An error has occurred", error);
       res.status(500).send("An error occurred while fetching restaurants.");
     });
+});
+
+router.get("/my-reservations", Auth, async (req, res) => {
+  const user = req.currentUser.id;
+  try {
+    const userReservations = await Reservation.find({
+      user, // Use currentUser.id to find user's reservations
+    });
+
+    res.json(userReservations);
+  } catch (error) {
+    console.error("Error fetching user reservations:", error);
+    res.status(500).json({ error: "Server error" });
+  }
 });
 
 router.post("/", (req, res) => {
@@ -45,17 +51,16 @@ router.post("/", (req, res) => {
   newPost
     .save()
     .then(() => {
-      res.send("your post request was successfully sent to the database!");
+      res.send("Your post request was successfully sent to the database!");
     })
     .catch((error) => {
       console.error("Error saving the post:", error);
-      res.status(500).send("An error occured while saving the post.");
+      res.status(500).send("An error occurred while saving the post.");
     });
 });
 
 router.post("/reservation", Auth, async (req, res) => {
-  const { date, time, guests, participants } = req.body;
-  console.log("Received data:", req.body);
+  const { date, time, guests } = req.body;
 
   try {
     // Save the reservation
@@ -63,19 +68,12 @@ router.post("/reservation", Auth, async (req, res) => {
       date: new Date(date),
       time: new Date(time),
       guests: parseInt(guests),
+      user: req.currentUser.id, // Associate reservation with the current user
     });
 
     await newReservation.save();
 
-    // Fetch participants' names
-    const participantsNames = await User.find(
-      { _id: { $in: participants } },
-      "name"
-    );
-
-    res
-      .status(200)
-      .json({ message: "Reservation confirmed", participantsNames });
+    res.status(200).json({ message: "Reservation confirmed" });
   } catch (error) {
     console.error("Error confirming reservation:", error);
     res.status(500).json({ error: "Server error" });
