@@ -1,5 +1,5 @@
-import { Flex, HStack, Text } from "@chakra-ui/react";
 import React from "react";
+import { Flex, HStack, Text, Button } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
 import ColorModeSwitch from "./ColorModeSwitch.jsx";
 
@@ -12,35 +12,60 @@ const NavBar = () => {
     navigate("/home");
   };
 
+  const handleUnauthorizedClick = () => {
+    if (!isLoggedIn) {
+      navigate("/login");
+    }
+  };
+
   return (
-    <div>
-      <HStack justifyContent="space-between" padding="10px">
-        <Text>FinestFind</Text>
-        <Text>
-          <Link to="/chat">Public chat</Link>
-        </Text>
-        <Text>
-          <Link to="/restaurants">Restaurants</Link>
-        </Text>
-        <Text>
-          <Link to="/inbox">Inbox</Link>
-        </Text>
-        <Flex alignItems="center" padding="10px">
-          <ColorModeSwitch />
-          {isLoggedIn ? (
-            <>
-              <span style={{ margin: "0 10px" }}></span>
-              <button onClick={handleLogout}>Logout</button>
-            </>
-          ) : (
-            <>
-              <span style={{ margin: "0 10px" }}></span>
-              <Link to="/login">Login</Link>
-            </>
-          )}
-        </Flex>
+    <HStack justifyContent="space-between" padding={4} alignItems="center">
+      <Text fontSize="xl" fontWeight="bold">
+        <Link to="/home">FinestFind</Link>
+      </Text>
+      <HStack spacing={4}>
+        <Link to="/chat">
+          <Button
+            variant={"link"}
+            onClick={handleUnauthorizedClick}
+            isDisabled={!isLoggedIn}
+          >
+            Public Chat
+          </Button>
+        </Link>
+        <Link to="/restaurants">
+          <Button
+            variant="link"
+            onClick={handleUnauthorizedClick}
+            isDisabled={!isLoggedIn}
+          >
+            Restaurants
+          </Button>
+        </Link>
+        {isLoggedIn && (
+          <Link to="/inbox">
+            <Button variant={"link"}>Inbox</Button>
+          </Link>
+        )}
       </HStack>
-    </div>
+      <Flex alignItems="center">
+        <ColorModeSwitch />
+        {isLoggedIn ? (
+          <Button colorScheme="blue" ml={4} onClick={handleLogout}>
+            Logout
+          </Button>
+        ) : (
+          <HStack spacing={4}>
+            <Link to="/login">
+              <Button colorScheme="blue">Login</Button>
+            </Link>
+            <Link to="/register">
+              <Button colorScheme="green">Sign Up</Button>
+            </Link>
+          </HStack>
+        )}
+      </Flex>
+    </HStack>
   );
 };
 
