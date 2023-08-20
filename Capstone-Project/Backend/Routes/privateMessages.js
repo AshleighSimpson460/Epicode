@@ -5,7 +5,7 @@ import mongoose from "mongoose";
 
 import { PrivateMessage } from "../Model/PrivateMessages.js";
 import { User } from "../Model/User.js";
-import { generatePrivateId } from "../utils/generatePrivateId.js"; // Import the generatePrivateId function
+import { generatePrivateId } from "../utils/generatePrivateId.js";
 import { PrivateChatMessage } from "../Model/PrivateChatMessage.js";
 
 export const router = express.Router();
