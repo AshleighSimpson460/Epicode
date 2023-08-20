@@ -1,27 +1,24 @@
 import React, { useState } from "react";
-import { Button, Card, CardBody, CardHeader, Flex } from "@chakra-ui/react";
+import {
+  Button,
+  Flex,
+  Box,
+  Heading,
+  Input,
+  FormControl,
+  FormLabel,
+  InputGroup,
+  InputRightElement,
+} from "@chakra-ui/react";
 import { showToast, showError } from "../Toaster";
 import { useNavigate } from "react-router-dom";
 
 const RegisterUser = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  // const [confirmPassword, setConfirmPassword] = useState("");
-
-  const handleNameChange = (event) => {
-    setName(event.target.value);
-  };
-  const handleEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-  // const handleConfirmPasswordChange = (event) => {
-  //   setConfirmPassword(event.target.value);
-  // };
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -61,68 +58,65 @@ const RegisterUser = () => {
   };
 
   return (
-    <div>
-      <Flex h="70vh" alignItems="center" justifyContent="center">
-        <Flex
-          flexDirection="column"
-          bg="#dd4b6a"
-          p={12}
-          borderRadius={10}
-          boxShadow="lg"
-        >
-          <Card>
-            <CardHeader pb={0}>Sign Up</CardHeader>
-            <CardBody>
-              <form onSubmit={handleFormSubmit}>
-                <Flex justifyContent="center" flexDirection="column" pb={6}>
-                  <label htmlFor="Email">Name</label>
-                  <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    placeholder="John Smith"
-                    value={name}
-                    onChange={handleNameChange}
-                  />
-                  <label htmlFor="Email">Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="abc@mail.com"
-                    value={email}
-                    onChange={handleEmailChange}
-                  />
-                  {/* <label htmlFor="Birthday">Date Of Birth</label>
-                <input type="date" name="date" id="date" /> */}
-                  <label htmlFor="Password">Password</label>
-                  <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="insert your password"
-                    value={password}
-                    onChange={handlePasswordChange}
-                  />
-                  {/* <label htmlFor="Password">Confirm Password</label>
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="insert your password"
-                  value={confirmPassword}
-                  onChange={handleConfirmPasswordChange}
-                /> */}
-                </Flex>
-                <Flex>
-                  <Button type="submit">Sign Up</Button>
-                </Flex>
-              </form>
-            </CardBody>
-          </Card>
-        </Flex>
-      </Flex>
-    </div>
+    <Flex h="100vh" alignItems="center" justifyContent="center">
+      <Box
+        w="400px"
+        p={8}
+        bg="white"
+        boxShadow="lg"
+        borderRadius="md"
+        textAlign="center"
+        color="black"
+      >
+        <Heading mb={6}>Sign Up</Heading>
+        <form onSubmit={handleFormSubmit}>
+          <FormControl mb={4}>
+            <FormLabel>Name</FormLabel>
+            <Input
+              type="text"
+              placeholder="John Smith"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              _placeholder={{ color: "gray.500" }}
+            />
+          </FormControl>
+          <FormControl mb={4}>
+            <FormLabel>Email</FormLabel>
+            <Input
+              type="email"
+              placeholder="abc@mail.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              _placeholder={{ color: "gray.500" }}
+            />
+          </FormControl>
+          <FormControl mb={4}>
+            <FormLabel>Password</FormLabel>
+            <InputGroup>
+              <Input
+                type={showPassword ? "text" : "password"}
+                placeholder="Insert your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                _placeholder={{ color: "gray.500" }}
+              />
+              <InputRightElement width="4.5rem">
+                <Button
+                  h="1.75rem"
+                  size="sm"
+                  onClick={() => setShowPassword(!showPassword)}
+                >
+                  {showPassword ? "Hide" : "Show"}
+                </Button>
+              </InputRightElement>
+            </InputGroup>
+          </FormControl>
+          <Button type="submit" colorScheme="blue" mt={4} w="100%">
+            Sign Up
+          </Button>
+        </form>
+      </Box>
+    </Flex>
   );
 };
 
