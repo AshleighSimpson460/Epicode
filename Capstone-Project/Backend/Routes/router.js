@@ -57,9 +57,8 @@ router.post("/reservation", Auth, async (req, res) => {
   const { date, time, guests, participants } = req.body;
   console.log("Received data:", req.body);
 
-  const chatId = generatePrivateId(participants[0], participants[1]);
-
   try {
+    // Save the reservation
     const newReservation = new Reservation({
       date: new Date(date),
       time: new Date(time),
@@ -68,56 +67,15 @@ router.post("/reservation", Auth, async (req, res) => {
 
     await newReservation.save();
 
-    // Send confirmation message to user's inbox
-    const confirmationMessage = {
-      userId: req.currentUser.id, // Assuming this is already an ObjectId
-      name: "Automated Message",
-      message: `Your reservation for ${date} at ${time} for ${guests} guests has been confirmed.`,
-      timestamp: new Date().toISOString(),
-    };
-
-    // Save the automated confirmation message as a private message
-    console.log("req.currentUser.id:", req.currentUser.id);
-    console.log("automated:", automatedAccountId);
-
-    // Convert participant IDs to ObjectId instances
-    const participantIds = participants.map(
-      (participant) => new mongoose.Types.ObjectId(participant)
-    );
-
-    participantIds.sort();
-
-    console.log("received participants:", participantIds);
-
-    // Create an array of user IDs including the current user and automated account
-    const userIds = [
-      new mongoose.Types.ObjectId(req.currentUser.id),
-      new mongoose.Types.ObjectId("64d902e241e0e7f38f90eeda"),
-    ];
-
-    // Check if the private chat already exists with these participants
-    const existingPrivateMessage = await PrivateMessage.findOne({
-      participants: { $all: userIds },
-    });
-
-    if (!existingPrivateMessage) {
-      // Create the automated message using the userIds array if it doesnt exist
-      const automatedMessage = new PrivateChatMessage({
-        chatId,
-        userId: userIds,
-        message: confirmationMessage.message,
-      });
-
-      await automatedMessage.save();
-    }
+    // Fetch participants' names
     const participantsNames = await User.find(
-      { _id: { $in: participantIds } },
+      { _id: { $in: participants } },
       "name"
     );
 
     res
       .status(200)
-      .json({ message: "Reservation confirmed", chatId, participantsNames });
+      .json({ message: "Reservation confirmed", participantsNames });
   } catch (error) {
     console.error("Error confirming reservation:", error);
     res.status(500).json({ error: "Server error" });
