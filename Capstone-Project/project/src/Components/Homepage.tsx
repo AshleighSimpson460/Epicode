@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Center, Heading, Text } from "@chakra-ui/react";
+import { Box, Heading, Text } from "@chakra-ui/react";
 
 const Homepage = () => {
   return (
