@@ -1,22 +1,29 @@
 import React from "react";
-import { Grid, GridItem, Show } from "@chakra-ui/react";
+import { Box, Center, Heading, Text } from "@chakra-ui/react";
 
 const Homepage = () => {
   return (
-    <div>
-      <Grid
-        templateAreas={{
-          base: `"nav" "main"`,
-          lg: `"nav nav" "aside main"`,
-        }}
+    <Box p={10}>
+      <Box
+        p={8}
+        borderWidth="1px"
+        borderRadius="lg"
+        boxShadow="lg"
+        textAlign="center"
       >
-        <GridItem area="nav"></GridItem>
-        <Show above="lg">
-          <GridItem area="aside">aside</GridItem>
-        </Show>
-        <GridItem area="main"></GridItem>
-      </Grid>
-    </div>
+        <Heading as="h1" size="xl" mb={4}>
+          Welcome to FinestFind!
+        </Heading>
+        <Heading as="h2" size="md">
+          Discover the Finest Dining Experiences
+        </Heading>
+      </Box>
+      <footer>
+        <Text textAlign={"center"}>
+          Everything has been designed and created by Ashleigh Simpson 2023
+        </Text>
+      </footer>
+    </Box>
   );
 };
 
