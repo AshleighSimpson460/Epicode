@@ -1,5 +1,16 @@
 import React, { useState } from "react";
-import { Card, CardHeader, CardBody, Flex, Button } from "@chakra-ui/react";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  Flex,
+  Button,
+  Input,
+  FormControl,
+  FormLabel,
+  Text,
+  Heading,
+} from "@chakra-ui/react";
 import { showError, showToast } from "../Toaster";
 import { useNavigate } from "react-router-dom";
 
@@ -61,49 +72,44 @@ const LoginUser = (props: { setupSocket: () => void }) => {
   };
 
   return (
-    <div>
-      <Flex h="70vh" alignItems="center" justifyContent="center">
-        <Flex flexDirection="column" p={12} borderRadius={10}>
-          <Card>
-            <CardHeader pb={0}>Log In</CardHeader>
-            <CardBody>
-              <form onSubmit={handleFormSubmit}>
-                <Flex justifyContent="center" flexDirection="column" pb={6}>
-                  <label htmlFor="Email">Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="abc@mail.com"
-                    value={email}
-                    onChange={handleEmailChange}
-                  />
-                  <label htmlFor="Password">Password</label>
-                  <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="insert your password"
-                    value={password}
-                    onChange={handlePasswordChange}
-                  />
-                </Flex>
-                <Flex justifyContent="space-between">
-                  <Button type="submit">Login</Button>
-                  <Button
-                    onClick={() => {
-                      navigate("/register");
-                    }}
-                  >
-                    Sign Up
-                  </Button>
-                </Flex>
-              </form>
-            </CardBody>
-          </Card>
-        </Flex>
-      </Flex>
-    </div>
+    <Flex h="100vh" alignItems="center" justifyContent="center">
+      <Card w="400px" p={8} boxShadow="lg" borderRadius="md" textAlign="center">
+        <Heading mb={6}>Log In</Heading>
+        <form onSubmit={handleFormSubmit}>
+          <FormControl mb={4}>
+            <FormLabel>Email</FormLabel>
+            <Input
+              type="email"
+              placeholder="abc@mail.com"
+              value={email}
+              onChange={handleEmailChange}
+            />
+          </FormControl>
+          <FormControl mb={4}>
+            <FormLabel>Password</FormLabel>
+            <Input
+              type="password"
+              placeholder="Insert your password"
+              value={password}
+              onChange={handlePasswordChange}
+            />
+          </FormControl>
+          <Button type="submit" colorScheme="blue" mt={4} w="100%">
+            Login
+          </Button>
+        </form>
+        <Text mt={4}>
+          Don't have an account?{" "}
+          <Button
+            colorScheme="teal"
+            size="sm"
+            onClick={() => navigate("/register")}
+          >
+            Sign Up
+          </Button>
+        </Text>
+      </Card>
+    </Flex>
   );
 };
 
