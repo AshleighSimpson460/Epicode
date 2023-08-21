@@ -143,29 +143,26 @@ const GroupMessage = ({
       <div className="chatroomSection">
         <div className="cardHeader">
           <div className="chatroomContent">
-            {messages.map((messageObj, index) => {
-              console.log("userId:", messageObj.userId);
-              return (
-                <div key={index} className="message">
+            {messages.map((messageObj, index) => (
+              <div key={index} className="message">
+                <span
+                  className={
+                    localCurrentUser.id === messageObj.userId
+                      ? "ownMessage"
+                      : "otherMessage"
+                  }
+                >
                   <span
-                    className={
-                      localCurrentUser.id === messageObj.userId
-                        ? "ownMessage"
-                        : "otherMessage"
-                    }
+                    style={{ cursor: "pointer" }}
+                    onClick={() => handleUserNameClick(messageObj.userId)}
                   >
-                    <span
-                      style={{ cursor: "pointer" }}
-                      onClick={() => handleUserNameClick(messageObj.userId)}
-                    >
-                      {messageObj.name}
-                    </span>{" "}
-                    ({messageObj.timestamp})
+                    {messageObj.name}
                   </span>{" "}
-                  {messageObj.message}
-                </div>
-              );
-            })}
+                  ({messageObj.timestamp})
+                </span>{" "}
+                {messageObj.message}
+              </div>
+            ))}
           </div>
           <div className="chatroomActions">
             <div>
