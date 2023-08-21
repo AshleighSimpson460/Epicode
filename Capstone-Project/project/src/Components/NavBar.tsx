@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, HStack, Text, Button } from "@chakra-ui/react";
+import { Flex, HStack, Text, Button, Spacer } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
 import ColorModeSwitch from "./ColorModeSwitch.jsx";
 
@@ -19,58 +19,81 @@ const NavBar = () => {
   };
 
   return (
-    <HStack justifyContent="space-between" padding={4} alignItems="center">
-      <Text fontSize="xl" fontWeight="bold">
-        <Link to="/home">FinestFind</Link>
-      </Text>
-      <HStack spacing={4}>
-        <Link to="/chat">
-          <Button
-            variant={"link"}
-            onClick={handleUnauthorizedClick}
-            isDisabled={!isLoggedIn}
-          >
-            Public Chat
-          </Button>
+    <Flex
+      as="nav"
+      justifyContent="space-between"
+      p={4}
+      borderBottom="1px solid"
+      borderColor="gray.200"
+    >
+      <HStack spacing={4} alignItems="center" marginTop={"10px"}>
+        <Link to="/home" style={{ display: "flex", alignItems: "center" }}>
+          <Text fontSize="xl" fontWeight="bold" _hover={{ color: "gray" }}>
+            FinestFind
+          </Text>
         </Link>
+        <Spacer />
         <Link to="/restaurants">
           <Button
             variant="link"
             onClick={handleUnauthorizedClick}
             isDisabled={!isLoggedIn}
+            _hover={{ textDecoration: "underline" }}
           >
             Restaurants
           </Button>
         </Link>
         {isLoggedIn && (
-          <Link to="/inbox">
-            <Button variant={"link"}>Inbox</Button>
+          <Link to="/my-reservations">
+            <Button variant="link" _hover={{ textDecoration: "underline" }}>
+              My Reservations
+            </Button>
           </Link>
         )}
+        <Link to="/chat">
+          <Button
+            variant="link"
+            onClick={handleUnauthorizedClick}
+            isDisabled={!isLoggedIn}
+            _hover={{ textDecoration: "underline" }}
+          >
+            Public Chat
+          </Button>
+        </Link>
         {isLoggedIn && (
-          <Link to="/my-reservations">
-            <Button variant={"link"}>My Reservation</Button>
+          <Link to="/inbox">
+            <Button variant="link" _hover={{ textDecoration: "underline" }}>
+              Inbox
+            </Button>
           </Link>
         )}
       </HStack>
-      <Flex alignItems="center">
+      <HStack spacing={4}>
         <ColorModeSwitch />
         {isLoggedIn ? (
-          <Button colorScheme="blue" ml={4} onClick={handleLogout}>
+          <Button
+            colorScheme="blue"
+            onClick={handleLogout}
+            _hover={{ bg: "blue.600" }}
+          >
             Logout
           </Button>
         ) : (
           <HStack spacing={4}>
             <Link to="/login">
-              <Button colorScheme="blue">Login</Button>
+              <Button colorScheme="blue" _hover={{ bg: "blue.600" }}>
+                Login
+              </Button>
             </Link>
             <Link to="/register">
-              <Button colorScheme="green">Sign Up</Button>
+              <Button colorScheme="green" _hover={{ bg: "green.600" }}>
+                Sign Up
+              </Button>
             </Link>
           </HStack>
         )}
-      </Flex>
-    </HStack>
+      </HStack>
+    </Flex>
   );
 };
 
