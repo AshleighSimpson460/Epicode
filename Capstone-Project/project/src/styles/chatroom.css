@@ -1,35 +1,54 @@
 .chatroomPage {
-    display: grid;
-    align-items: center;
+    display: flex;
     justify-content: center;
+    align-items: center;
     height: 100vh;
-    width: 100vw;
-    margin: -8px;
+    margin: 0;
+    padding: 0;
 }
 
 .chatroomSection {
     width: 40vw;
-    height: 80vh;
     margin: auto;
+    padding: 1rem;
     border: 1px solid #000000;
-    position: relative;
+    border-radius: 5px;
+    background-color: rgb(216, 216, 216);
+    display: flex;
+    flex-direction: column;
 }
 
 .chatroomContent {
-    position: absolute;
-    top: 2.5rem;
-    left: 0;
-    right: 0;
-    bottom: 3.5rem;
+    flex: 1;
     padding: 0.5rem;
-    overflow: auto;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Align messages to the left */
+}
+
+.message {
+    margin-bottom: 0.25rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    color: black;
+    width: fit-content;
+}
+
+.otherMessage {
+    color: #0099cc;
+    font-weight: bold;
+    align-self: flex-end;
+}
+
+.ownMessage {
+    color: #00cc00;
+    font-weight: bold;
+    align-self: flex-start;
 }
 
 .chatroomActions {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
     padding: 0.5rem;
     display: grid;
     grid-template-columns: 1fr 72px;
@@ -38,23 +57,20 @@
 }
 
 .chatroomActions input {
-    width: 80%;
+    width: 100%;
+    padding: 0.5rem;
+    background-color: rgb(163, 163, 163);
+    color: black;
+    border: none;
+    border-radius: 5px;
 }
 
 .chatroomActions button {
     height: 100%;
-}
-
-.message {
-    margin-bottom: 0.25rem;
-}
-
-.otherMessage {
-    color: #0099cc;
-    font-weight: bold;
-}
-
-.ownMessage {
-    color: #00cc00;
-    font-weight: bold;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
