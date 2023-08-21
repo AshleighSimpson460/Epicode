@@ -1,5 +1,5 @@
 const CreateChatroom = (name) => {
-  return fetch("http://localhost:3002/chat", {
+  return fetch("http://localhost:3002/groupchats", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
